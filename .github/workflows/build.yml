@@ -35,5 +35,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            filip/arduino-greenhouse-client:latest
-            filip/arduino-greenhouse-client:0.0.1
+            filipkrajcovic/arduino-greenhouse-client:latest
+            filipkrajcovic/arduino-greenhouse-client:0.0.1
