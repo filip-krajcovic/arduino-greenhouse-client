@@ -34,9 +34,11 @@ jobs:
           cat ./package.json >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - 
-        name: Print version
+        name: Print version, name and author
         run: |
           echo '${{ fromJson(env.PACKAGE_JSON).version }}'
+          echo '${{ fromJson(env.PACKAGE_JSON).name }}'
+          echo '${{ fromJson(env.PACKAGE_JSON).author }}'
       -
         name: Build and push
         uses: docker/build-push-action@v3
@@ -45,5 +47,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            filipkrajcovic/arduino-greenhouse-client:latest
-            filipkrajcovic/arduino-greenhouse-client:${{ fromJson(env.PACKAGE_JSON).version }}
+            ${{ fromJson(env.PACKAGE_JSON).author }}/${{ fromJson(env.PACKAGE_JSON).name }}:latest
+            ${{ fromJson(env.PACKAGE_JSON).author }}/${{ fromJson(env.PACKAGE_JSON).name }}:${{ fromJson(env.PACKAGE_JSON).version }}
