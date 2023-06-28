@@ -46,4 +46,4 @@ jobs:
           push: true
           tags: |
             filipkrajcovic/arduino-greenhouse-client:latest
-            filipkrajcovic/arduino-greenhouse-client:0.0.1
+            filipkrajcovic/arduino-greenhouse-client:${{ fromJson(env.PACKAGE_JSON).version }}
