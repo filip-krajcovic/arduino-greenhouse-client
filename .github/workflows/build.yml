@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
     paths-ignore:
-    - '.github/**/*.yml'
+    #- '.github/**/*.yml'
     - '.gitignore'
 
 jobs:
@@ -27,6 +27,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Read package.json
+        run: |
+          echo 'PACKAGE_JSON<<EOF' >> $GITHUB_ENV
+          cat ./package.json >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - 
+        name: Print version
+        run: |
+          echo '${{ fromJson(env.PACKAGE_JSON).version }}'
       -
         name: Build and push
         uses: docker/build-push-action@v3
