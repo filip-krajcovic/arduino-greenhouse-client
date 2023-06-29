@@ -11,9 +11,6 @@ import TheFooter from './Footer.vue';
         <main class="min-h-screen py-8">
             <RouterView />
         </main>
-        <footer class="absolute bottom-0 h-8">
-            <TheFooter />
-        </footer>
     </div>
 </template>
   
