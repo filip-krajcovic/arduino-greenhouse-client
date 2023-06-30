@@ -16,5 +16,4 @@ const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
   <p>Teplota vzduchu {{ temperature }}°C</p>
   <p>Vlhkost vzduchu {{ humidity }}%</p>
   <p>Vlhkost pôdy {{ moisure_soil }}%</p>
-  <RouterLink to="history">História</RouterLink>
 </template>
