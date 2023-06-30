@@ -5,10 +5,10 @@ import TheFooter from './Footer.vue';
 
 <template>
     <div class="container mx-auto">
-        <header class="absolute top-1 h-8">
+        <header>
             <TheHeader />
         </header>
-        <main class="min-h-screen py-8">
+        <main class="min-h-screen px-4">
             <RouterView />
         </main>
     </div>
