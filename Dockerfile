@@ -13,6 +13,7 @@ COPY tsconfig.app.json ./
 COPY tsconfig.node.json ./
 COPY vite.config.ts ./
 COPY env.d.ts ./
+COPY .env ./
 COPY ./src/ ./src/
 
 RUN npm run build
