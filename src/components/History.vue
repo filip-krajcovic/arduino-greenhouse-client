@@ -12,7 +12,7 @@ const { measurements } = useMeasurementsStore()
       <div>{{ measurements.length - index }}.</div>
       <div>
         Dátum a čas merania:
-        <b>{{ $d(getDate(item.timestamp.seconds), 'long') }}</b>
+        <b>{{ getDate(item.timestamp.seconds).toLocaleString('sk-SK') }}</b>
       </div>
       <div>Teplota: <b>{{ item.temperature }} °C</b></div>
       <div>Vlhkosť vzduchu: <b>{{ item.humidity }} %</b></div>
