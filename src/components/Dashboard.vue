@@ -13,7 +13,7 @@ const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
 </script>
 
 <template>
-  <p>Teplota vzduchu {{ temperature }}°C</p>
+  <p class="px-4">Teplota vzduchu {{ temperature }}°C</p>
   <p>Vlhkost vzduchu {{ humidity }}%</p>
   <p>Vlhkost pôdy {{ moisure_soil }}%</p>
 </template>
