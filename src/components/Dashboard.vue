@@ -31,7 +31,12 @@ const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
 				</div>
 			</div>
 		</div>
-  <p class="">Teplota vzduchu {{ temperature }}°C</p>
-  <p>Vlhkosť {{ humidity }}%</p>
-  <p>Vlhkost pôdy {{ moisure_soil }}%</p>
+    <div class="pl-4 pt-3">
+      <h1 class="text-2xl text-black/70 font-bold">Snímač vlhkosti pôdy</h1>
+      <h3 class="text-lg pt-2 text-black/70 ">Vlhkosť pôdy je <span class="font-medium text-green-600/95"> {{ moisure_soil }}%</span></h3>
+	  </div>
+
+
+
+
 </template>
