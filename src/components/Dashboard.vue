@@ -31,11 +31,11 @@ const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
 				</div>
 			</div>
 		</div>
-    <div class="pt-3 pb-4">
+    <div class="pt-3 pb-3">
       <h1 class="text-2xl text-black/70 font-bold">Snímač vlhkosti pôdy</h1>
       <h3 class="text-lg pt-2 text-black/70 ">Vlhkosť pôdy je <span class="font-medium text-green-600/95"> {{ moisure_soil }}%</span></h3>
 	</div>
-	<div class="grid grid-cols-2 gap-8 pt-3 ">
+	<div class="grid grid-cols-2 gap-20 pt-4 pb-3">
 		<div class="flex flex-col">
 			<h1 class="text-2xl text-black/70 font-bold pb-2">Pohyb okna</h1>				
 			<div class="inline-flex drop-shadow-[0_2px_4px_rgba(0,0,0,0.18)] pt-2">
@@ -51,10 +51,22 @@ const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
 				<button type="button" class="bg-gray-300 rounded-r-lg py-3 px-3 hover:bg-green-600 hover:text-white">Zapnúť</button>
 			</div>
 			<h3 class="text-black/70 font-extralight pt-3">Svetlá sú <span class="text-green-600 font-bold pt-1"> zapnuté</span></h3>
-
 		</div>
 	</div>
+	<div class="pt-4">
+		<h1 class="text-2xl text-black/70 font-bold">Harmonogram</h1>
+	</div>
+	<div class="grid grid-cols-2 gap-12 pt-4 ">
+		<div class="flex flex-col">
+				<h3 class="text-xl text-black/70 pb-2">Zapnúť</h3>
+				<input class="text-black/70 text-2xl rounded-2xl bg-gray-300 px-4 py-1 " type="time" value="00:00">
+		</div>
 
+		<div class="flex flex-col">
+				<h3 class="text-xl text-black/70 pb-2">Vypnúť</h3>
+				<input class="text-black/70 text-2xl bg-gray-300 rounded-2xl px-4 py-1" type="time" value="00:00">
+		</div>
+	</div>
 
 
 
