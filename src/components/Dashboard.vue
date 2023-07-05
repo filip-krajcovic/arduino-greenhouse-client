@@ -35,7 +35,7 @@ const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
       <h1 class="text-2xl text-black/70 font-bold">Snímač vlhkosti pôdy</h1>
       <h3 class="text-lg pt-2 text-black/70 ">Vlhkosť pôdy je <span class="font-medium text-green-600/95"> {{ moisure_soil }}%</span></h3>
 	</div>
-	<div class="grid grid-cols-2 gap-18 pt-4 pb-3">
+	<div class="grid grid-cols-2 gap-20 pt-4 pb-3">
 		<div class="flex flex-col">
 			<h1 class="text-2xl text-black/70 font-bold pb-2">Pohyb okna</h1>				
 			<div class="inline-flex drop-shadow-[0_2px_4px_rgba(0,0,0,0.18)] pt-2">
