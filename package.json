@@ -1,6 +1,6 @@
 {
   "name": "arduino-greenhouse-client",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "author": "filipkrajcovic",
   "private": true,
   "scripts": {
