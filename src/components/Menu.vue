@@ -20,7 +20,7 @@ const closed = computed(()=> !props.opened)
 </script>
 
 <template>
-  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white transition-all transform duration-500" :class="{ closed }">
+  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white transition-all transform duration-500 closed"">
     <button class="absolute top-0 right-0 pt-8 pr-6" @click="close">
       <IconClose class="w-8 h-8"/>
     </button>
