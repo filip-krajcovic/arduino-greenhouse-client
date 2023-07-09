@@ -67,6 +67,6 @@ const closed = computed(()=> !props.opened)
 
 <style>
 .closed {
-  transform: translateX(-100vw);
+  transform: translateX(-400px);
 }
 </style>
