@@ -68,5 +68,6 @@ const closed = computed(()=> !props.opened)
 <style>
 .closed {
   transform: translateX(-400px);
+  visibility: hidden;
 }
 </style>
