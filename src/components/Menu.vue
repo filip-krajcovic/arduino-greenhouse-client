@@ -41,10 +41,10 @@ const closed = computed(()=> !props.opened)
       <IconRight/>
     </div>
     <div class="flex justify-between items-center pt-10 px-8">
-      <div class="flex">
+      <RouterLink class="flex" to="history" @click="close">
         <IconHistory2 class="w-6 h-6"/>
         <p class="pl-3 text-base text-black/80 font-light">História</p>
-      </div>
+      </RouterLink>
       <IconRight/>
     </div>
     <div class="flex items-center justify-between pt-10 px-8">
@@ -67,7 +67,7 @@ const closed = computed(()=> !props.opened)
 
 <style scoped>
 aside.closed {
-  transform: translateX(-99%);
+  transform: translateX(-110%);
 }
 aside:not(.closed) {
   transform: translateX(0%);

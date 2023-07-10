@@ -11,16 +11,13 @@ const openMenu = () => {
 
 <template>
     <div class="bg-cyan-800 text-white py-4 px-4 flex">
-        <div class="flex flex-auto justify-between">
+        <div class="flex flex-auto">
             <div class="flex">
                 <button type="button" @click="openMenu" aria-label="btn-open-menu">
                     <IconMenu class="inline" />
                 </button>
-                <span class="text-xl pl-2">Arduino</span>
-            </div>
-            <div class="flex">
-                <RouterLink to="history">
-                    <IconHistory />
+                <RouterLink to="/">
+                    <span class="text-xl pl-2">Arduino</span>
                 </RouterLink>
             </div>
         </div>
