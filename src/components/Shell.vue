@@ -15,15 +15,15 @@ const closeMenu = () => {
 </script>
 
 <template>
-    <div class="container mx-auto">
+    <div class="container mx-auto overflow-hidden relative">
         <header>
             <TheHeader @menu-open="openMenu"/>
         </header>
         <main class="min-h-screen px-4">
             <RouterView />
         </main>
+        <Menu :opened="menuOpened" @menu-close="closeMenu"/>
     </div>
-    <Menu :opened="menuOpened" @menu-close="closeMenu"/>
 </template>
   
 <style>

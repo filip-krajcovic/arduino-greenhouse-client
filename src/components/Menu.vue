@@ -20,8 +20,8 @@ const closed = computed(()=> !props.opened)
 </script>
 
 <template>
-  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white transition-all transform duration-500" :class="{ closed }">
-    <button class="absolute top-0 right-0 pt-8 pr-6" @click="close">
+  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white transition-all transform duration-500 will-change-transform" :class="{ closed }">
+    <button class="absolute top-0 right-0 mt-8 mr-6" @click="close" type="button" aria-label="btn-close-menu">
       <IconClose class="w-8 h-8"/>
     </button>
     <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">Ahoj, Filip!</h1>
@@ -65,9 +65,11 @@ const closed = computed(()=> !props.opened)
   </aside>
 </template>
 
-<style>
-.closed {
-  transform: translateX(-400px);
-  visibility: hidden;
+<style scoped>
+aside.closed {
+  transform: translateX(-99%);
+}
+aside:not(.closed) {
+  transform: translateX(0%);
 }
 </style>
