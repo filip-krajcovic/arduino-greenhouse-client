@@ -33,28 +33,30 @@ const closed = computed(()=> !props.opened)
       <IconRight/>
     </div>
     <div class="h-px bg-gray-300"></div>
-    <div class="flex items-center justify-between px-8 pt-8">
+    <div class="flex items-center justify-between mx-8 mt-8">
       <div class="flex">
         <IconSettings class="w-6 h-6"/>
         <p class="pl-3 text-base text-black/80 font-light">Nastavenia</p>
       </div>
       <IconRight/>
     </div>
-    <div class="flex justify-between items-center pt-10 px-8">
-      <RouterLink class="flex" to="history" @click="close">
+    <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
+      <div class="flex items-center">
         <IconHistory2 class="w-6 h-6"/>
         <p class="pl-3 text-base text-black/80 font-light">História</p>
-      </RouterLink>
+      </div>
+      <div class="flex">
       <IconRight/>
-    </div>
-    <div class="flex items-center justify-between pt-10 px-8">
+      </div>
+    </RouterLink>
+    <div class="flex items-center justify-between mx-8 mt-8">
       <div class="flex">
         <IconNotification class="w-6 h-6"/>
         <p class="pl-3 text-base text-black/80 font-light">Notifikácie</p>
       </div>
       <IconRight/>
     </div>
-    <div class="flex items-center justify-between pt-10 px-8">
+    <div class="flex items-center justify-between mx-8 mt-8">
       <div class="flex">
         <IconBook class="w-6 h-6"/>
         <p class="pl-3 text-base text-black/80 font-light">Katalóg</p>
