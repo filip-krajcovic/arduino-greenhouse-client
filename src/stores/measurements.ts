@@ -27,7 +27,7 @@ export const useMeasurementsStore = defineStore('measurements', () => {
   const collectionRef = collection(firestore, 'sensors');
   const collectionQuery = query(collectionRef, orderBy('timestamp', 'desc'))
 
-  const measurementCollection = useCollection<IMeasurement>(collectionQuery)
+  const measurementCollection= useCollection<IMeasurement>(collectionQuery)
 
   const measurements = computed(() => measurementCollection.data)
 
