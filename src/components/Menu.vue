@@ -49,20 +49,20 @@ const closed = computed(()=> !props.opened)
       <IconRight/>
       </div>
     </RouterLink>
-    <div class="flex items-center justify-between mx-8 mt-8">
+    <div class="flex items-center justify-between mx-8 mt-8" >
       <div class="flex">
         <IconNotification class="w-6 h-6"/>
         <p class="pl-3 text-base text-black/80 font-light">Notifikácie</p>
       </div>
       <IconRight/>
     </div>
-    <div class="flex items-center justify-between mx-8 mt-8">
+    <RouterLink class="flex items-center justify-between mx-8 mt-8" to="catalogue" @click="close">
       <div class="flex">
         <IconBook class="w-6 h-6"/>
-        <p class="pl-3 text-base text-black/80 font-light">Katalóg</p>
+        <span class="pl-3 text-base text-black/80 font-light">Katalóg</span>
       </div>
       <IconRight/>
-    </div>
+    </RouterLink>
   
   </aside>
 </template>
