@@ -25,21 +25,21 @@ const closed = computed(()=> !props.opened)
       <IconClose class="w-8 h-8"/>
     </button>
     <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">Ahoj, Filip!</h1>
-    <div class="flex items-center justify-between mx-8 mb-8">
+    <RouterLink class="flex items-center justify-between mx-8 mb-8" to="profile" @click="close">
       <div class="flex items-center">
         <IconProfile class="w-5 h-5 mb-0.5"/>
         <p class="pl-3 text-black/80 font-light">Môj účet</p>
       </div>
       <IconRight/>
-    </div>
+    </RouterLink>
     <div class="h-px bg-gray-300"></div>
-    <div class="flex items-center justify-between mx-8 mt-8">
+    <RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
       <div class="flex items-center">
         <IconSettings class="w-5 h-5"/>
         <p class="pl-3 text-base text-black/80 font-light">Nastavenia</p>
       </div>
       <IconRight/>
-    </div>
+    </RouterLink>
     <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
       <div class="flex items-center">
         <IconHistory2 class="w-5 h-5"/>
