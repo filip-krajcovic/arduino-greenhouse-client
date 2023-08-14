@@ -3,6 +3,9 @@ import HomeView from '@/views/HomeView.vue'
 import HistoryView from '@/views/HistoryView.vue'
 import CatalogueView from '@/views/CatalogueView.vue'
 import NotificationsView from '@/views/NotificationsView.vue'
+import ProfileView from '@/views/ProfileView.vue'
+import SettingsView from '@/views/SettingsView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +29,16 @@ const router = createRouter({
       path: '/notifications',
       name: 'notifications',
       component: NotificationsView,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView,
     },
   ]
 })
