@@ -11,7 +11,7 @@ const items = [
       sk: 'Rajčiak jedlý',
       latin: 'Solanum lycopersicum',
     },
-    class: 'w-20 h-22'
+    class: 'w-20 h-22 pt-6'
   },
   {
     url: paprikaImageUrl,
@@ -35,7 +35,7 @@ const items = [
       sk: 'Rajčiak jedlý',
       latin: 'Solanum lycopersicum',
     },
-    class: 'w-20 h-22'
+    class: 'w-20 h-22 pt-6'
   },
   {
     url: paprikaImageUrl,
@@ -70,7 +70,7 @@ const items = [
         </div>
         <div class="flex flex-col self-end">
           <h2 class="font-black text-black/90">{{ item.name.sk }}</h2>
-          <i class="text-black/70">{{ item.name.latin }}</i>
+          <i class="text-sm text-black/70">{{ item.name.latin }}</i>
         </div>
       </div>
     </div>
