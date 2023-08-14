@@ -25,24 +25,24 @@ const closed = computed(()=> !props.opened)
       <IconClose class="w-8 h-8"/>
     </button>
     <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">Ahoj, Filip!</h1>
-    <div class="flex items-center justify-between px-8 pb-8">
-      <div class="flex">
-        <IconProfile class="w-6 h-6"/>
+    <div class="flex items-center justify-between mx-8 mb-8">
+      <div class="flex items-center">
+        <IconProfile class="w-5 h-5 mb-0.5"/>
         <p class="pl-3 text-black/80 font-light">Môj účet</p>
       </div>
       <IconRight/>
     </div>
     <div class="h-px bg-gray-300"></div>
     <div class="flex items-center justify-between mx-8 mt-8">
-      <div class="flex">
-        <IconSettings class="w-6 h-6"/>
+      <div class="flex items-center">
+        <IconSettings class="w-5 h-5"/>
         <p class="pl-3 text-base text-black/80 font-light">Nastavenia</p>
       </div>
       <IconRight/>
     </div>
     <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
       <div class="flex items-center">
-        <IconHistory2 class="w-6 h-6"/>
+        <IconHistory2 class="w-5 h-5"/>
         <p class="pl-3 text-base text-black/80 font-light">História</p>
       </div>
       <div class="flex">
@@ -50,15 +50,15 @@ const closed = computed(()=> !props.opened)
       </div>
     </RouterLink>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="notifications" @click="close">
-      <div class="flex">
-        <IconNotification class="w-6 h-6"/>
+      <div class="flex items-center">
+        <IconNotification class="w-5 h-5 mb-px"/>
         <p class="pl-3 text-base text-black/80 font-light">Notifikácie</p>
       </div>
       <IconRight/>
     </RouterLink>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="catalogue" @click="close">
-      <div class="flex">
-        <IconBook class="w-6 h-6"/>
+      <div class="flex items-center">
+        <IconBook class="w-5 h-5 "/>
         <span class="pl-3 text-base text-black/80 font-light">Katalóg</span>
       </div>
       <IconRight/>
