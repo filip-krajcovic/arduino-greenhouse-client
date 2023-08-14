@@ -1,5 +1,56 @@
 <script setup lang="ts">
-import IconLeft from '@/icons/IconLeft.vue';
+import IconLeft from '@/icons/IconLeft.vue'
+import rajcinaImageUrl from '../assets/RAJCINA.png'
+import paprikaImageUrl from '../assets/PAPRIKA.png'
+import chilliImageUrl from '../assets/CHILLI.png'
+
+const items = [
+  {
+    url: rajcinaImageUrl,
+    name: {
+      sk: 'Rajčiak jedlý',
+      latin: 'Solanum lycopersicum',
+    }
+  },
+  {
+    url: paprikaImageUrl,
+    name: {
+      sk: 'Paprika ročná',
+      latin: 'Capsicum annuum',
+    }
+  },
+  {
+    url: chilliImageUrl,
+    name: {
+      sk: 'Chilli',
+      latin: 'Capsicum',
+    },
+    class: 'h-28'
+  },
+  {
+    url: rajcinaImageUrl,
+    name: {
+      sk: 'Rajčiak jedlý',
+      latin: 'Solanum lycopersicum',
+    }
+  },
+  {
+    url: paprikaImageUrl,
+    name: {
+      sk: 'Paprika ročná',
+      latin: 'Capsicum annuum',
+    }
+  },
+  {
+    url: chilliImageUrl,
+    name: {
+      sk: 'Chilli',
+      latin: 'Capsicum',
+    },
+    class: 'h-28'
+  },
+]
+
 
 </script>
 
@@ -9,64 +60,13 @@ import IconLeft from '@/icons/IconLeft.vue';
         <span class="font-bold text-2xl text-gray-950/80">Katalóg</span>
     </div>
     <div class="grid grid-cols-2 grid-rows-3 gap-3">
-      <div
-        class="flex justify-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex flex-col items-center pt-12 pb-8">
-          <img src="../assets/RAJCINA.png" class="w-24 h-26" />
+      <div v-for="item in items" class="grid justify-center items-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
+        <div class="flex justify-center pt-2">
+          <img :src="item.url" :class="item.class ?? 'w-24 h-26'" />
         </div>
-        <div class="flex flex-col pl-6">
-          <h2 class="font-bold pb-1 text-black/90">Rajčiak jedlý</h2>
-          <span class="italic text-black/70 pb-4">Solanum lycopersicum</span>
-        </div>
-      </div>
-      <div
-        class="flex justify-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex flex-col items-center pt-2 pb-8">
-          <img src="../assets/PAPRIKA.png" class="w-22 h-28" />
-        </div>
-        <div class="flex flex-col pl-6">
-          <h2 class="font-bold pb-1 text-black/90">Paprika ročná</h2>
-          <span class="italic text-black/70 pb-4">Capsicum annuum</span>
-        </div>
-      </div>
-      <div
-        class="flex justify-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex flex-col items-center pt-8 pb-8">
-          <img src="../assets/CHILLI.png" class="h-32" />
-        </div>
-        <div class="flex flex-col pl-6">
-          <h2 class="font-bold pb-1 text-black/90">Chilli</h2>
-          <span class="italic text-black/70 pb-4">Capsicum</span>
-        </div>
-      </div>
-      <div
-        class="flex justify-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex flex-col items-center pt-8 pb-8">
-          <img src="../assets/CHILLI.png" class="h-32" />
-        </div>
-        <div class="flex flex-col pl-6">
-          <h2 class="font-bold pb-1 text-black/90">Chilli</h2>
-          <span class="italic text-black/70 pb-4">Capsicum</span>
-        </div>
-      </div>
-      <div
-        class="flex justify-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex flex-col items-center pt-8 pb-8">
-          <img src="../assets/CHILLI.png" class="h-32" />
-        </div>
-        <div class="flex flex-col pl-6">
-          <h2 class="font-bold pb-1 text-black/90">Chilli</h2>
-          <span class="italic text-black/70 pb-4">Capsicum</span>
-        </div>
-      </div>
-      <div
-        class="flex justify-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex flex-col items-center pt-8 pb-8">
-          <img src="../assets/CHILLI.png" class="h-32" />
-        </div>
-        <div class="flex flex-col pl-6">
-          <h2 class="font-bold pb-1 text-black/90">Chilli</h2>
-          <span class="italic text-black/70 pb-4">Capsicum</span>
+        <div class="flex flex-col self-end pb-2">
+          <h2 class="font-black text-black/90">{{ item.name.sk }}</h2>
+          <i class="text-black/70">{{ item.name.latin }}</i>
         </div>
       </div>
     </div>
