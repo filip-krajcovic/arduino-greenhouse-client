@@ -64,11 +64,11 @@ const items = [
         <span class="font-bold text-2xl text-gray-950/80">Katalóg</span>
     </div>
     <div class="grid grid-cols-2 grid-rows-3 gap-3 px-2">
-      <div v-for="item in items" class="grid  items-center flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-        <div class="flex justify-center pt-2">
+      <div v-for="item in items" class="grid  items-center px-4 py-4 flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
+        <div class="flex justify-center pb-6">
           <img :src="item.url" :class="item.class ?? 'w-24 h-26'" />
         </div>
-        <div class="flex flex-col self-end pb-2 px-4">
+        <div class="flex flex-col self-end">
           <h2 class="font-black text-black/90">{{ item.name.sk }}</h2>
           <i class="text-black/70">{{ item.name.latin }}</i>
         </div>
