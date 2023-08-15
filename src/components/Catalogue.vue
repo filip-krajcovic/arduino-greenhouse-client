@@ -11,7 +11,7 @@ const items = [
       sk: 'Rajčiak jedlý',
       latin: 'Solanum lycopersicum',
     },
-    class: 'w-20 h-22 pt-6'
+    class: 'w-20 h-22 pt-4'
   },
   {
     url: paprikaImageUrl,
@@ -19,7 +19,7 @@ const items = [
       sk: 'Paprika ročná',
       latin: 'Capsicum annuum',
     },
-    class: 'w-20 h-26'
+    class: 'w-18 h-24'
   },
   {
     url: chilliImageUrl,
@@ -27,7 +27,7 @@ const items = [
       sk: 'Chilli',
       latin: 'Capsicum',
     },
-    class: 'h-28'
+    class: 'h-24'
   },
   {
     url: rajcinaImageUrl,
@@ -35,7 +35,7 @@ const items = [
       sk: 'Rajčiak jedlý',
       latin: 'Solanum lycopersicum',
     },
-    class: 'w-20 h-22 pt-6'
+    class: 'w-20 h-22 pt-4'
   },
   {
     url: paprikaImageUrl,
@@ -43,7 +43,7 @@ const items = [
       sk: 'Paprika ročná',
       latin: 'Capsicum annuum',
     },
-    class: 'w-20 h-26'
+    class: 'w-18 h-24'
   },
   {
     url: chilliImageUrl,
@@ -51,7 +51,7 @@ const items = [
       sk: 'Chilli',
       latin: 'Capsicum',
     },
-    class: 'h-28'
+    class: 'h-24'
   },
 ]
 
@@ -64,7 +64,7 @@ const items = [
         <span class="font-bold text-2xl text-gray-950/80">Katalóg</span>
     </div>
     <div class="grid grid-cols-2 grid-rows-3 gap-3 px-2">
-      <div v-for="item in items" class="grid  items-center px-4 py-4 flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
+      <div v-for="item in items" class="grid  items-center px-4 py-4 flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-lg">
         <div class="flex justify-center pb-6">
           <img :src="item.url" :class="item.class ?? 'w-24 h-26'" />
         </div>
