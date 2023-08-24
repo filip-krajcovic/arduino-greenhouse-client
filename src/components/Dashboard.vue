@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useMeasurementsStore } from '@/stores/measurements'
+import { useMqttStore } from '@/stores/measurements.mqtt'
 import { computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import IconHumidity from '@/icons/IconHumidity.vue';
 import IconTemperature from '@/icons/IconTemperature.vue';
 
@@ -8,9 +10,11 @@ const { measurements } = useMeasurementsStore()
 
 const lastValue = computed(() => measurements.value[0])
 
-const temperature = computed(() => lastValue?.value?.temperature)
-const humidity = computed(() => lastValue?.value?.humidity)
-const moisure_soil = computed(() => lastValue?.value?.moisure_soil)
+const { temperature: t, humidity: h, moisure_soil: m } = storeToRefs(useMqttStore())
+
+const temperature = computed(() => t.value ?? lastValue?.value?.temperature)
+const humidity = computed(() => h.value ?? lastValue?.value?.humidity)
+const moisure_soil = computed(() => m.value ?? lastValue?.value?.moisure_soil)
 
 </script>
 
