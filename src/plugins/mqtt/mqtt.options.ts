@@ -15,7 +15,3 @@ export const clientOptions: IClientOptions = {
   username,
   password,
 }
-
-export interface IModuleOptions {
-  messageReceivedCallback?: Function;
-}
