@@ -1,15 +1,20 @@
 import { watch, type Plugin } from 'vue'
-import { useMqtt } from './mqtt.module'
+import { useMqttClient } from './mqtt.client'
 import { Topics } from './mqtt.topics'
 import type { IMessage } from './mqtt.types'
 import { useMeasurementsStore } from '@/stores/measurements.store'
 import { storeToRefs } from 'pinia'
+import { mqttClientInjectionKey } from './mqtt.keys'
 
 export const mqtt: Plugin = {
-  install: () => {
+  install: (app) => {
     console.log('MQTT plugin installed')
+
+    const mqtt = useMqttClient()
+
+    app.provide(mqttClientInjectionKey, mqtt)
   
-    const { connect, connected, subscribe, messages } = useMqtt()
+    const { connect, connected, subscribe, messages } = mqtt
 
     connect()
  

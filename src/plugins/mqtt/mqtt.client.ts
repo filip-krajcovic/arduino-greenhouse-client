@@ -3,8 +3,9 @@ import { brokerUrl, clientOptions } from './mqtt.options'
 import { Events } from './mqtt.events'
 import { useMqttStore } from './mqtt.store'
 import { storeToRefs } from 'pinia'
+import type { IMqttClient } from './mqtt.types'
 
-export const useMqtt = () => {
+export const useMqttClient = (): IMqttClient => {
 
   const mqttStore = useMqttStore()
 
@@ -48,6 +49,10 @@ export const useMqtt = () => {
     client.unsubscribe(topic)
   }
 
+  const publish = (topic: string, message: string | Buffer) => {
+    client.publishAsync(topic, message);
+  }
+
   return {
     connected,
     error,
@@ -55,5 +60,6 @@ export const useMqtt = () => {
     connect: _connect,
     subscribe,
     unsubscribe,
+    publish,
   }
 }
