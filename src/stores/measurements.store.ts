@@ -15,7 +15,6 @@ export const useMeasurementsStore = defineStore('measurements', () => {
   }
 
   const fetchLastTemperature = async () => {
-    console.log('fetchLastTemperature')
     temperature.value = await getLastTemperature()
   }
 
