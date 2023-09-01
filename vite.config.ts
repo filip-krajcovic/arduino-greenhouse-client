@@ -32,11 +32,11 @@ export default defineConfig({
         ],
     }
   },
-  // build: {
-  //   rollupOptions: {
-  //     // Enable rollup polyfills plugin
-  //     // used during production bundling
-  //     plugins: [nodePolyfills()],
-  //   },
-  // },
+  build: {
+    rollupOptions: {
+      // Enable rollup polyfills plugin
+      // used during production bundling
+      plugins: [nodePolyfills()],
+    },
+  },
 })
