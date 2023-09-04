@@ -5,3 +5,5 @@ export const API = {
   humidityEndpoint: 'api/v1/humidity',
   soilMoistureEndpoint: 'api/v1/soilmoisture',
 }
+
+export const baseUrl = window.location.origin;
