@@ -17,6 +17,7 @@ COPY .env ./
 COPY ./src/ ./src/
 
 RUN npm run build
+COPY keycloak.json ./dist
 
 # production stage
 FROM nginx:stable-alpine AS production-stage
