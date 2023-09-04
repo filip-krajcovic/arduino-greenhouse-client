@@ -31,15 +31,15 @@ const items = [
       sk: 'Chilli',
       latin: 'Capsicum',
     },
-    class: 'w-24 h-18'
+    class: 'w-28 h-22 pt-3'
   },
   {
-    url: bazalkaImageUrl,
+    url: redkovkaImageUrl,
     name: {
-      sk: 'Bazalka pravá',
-      latin: 'Ocimum basilicum',
+      sk: 'Reďkev siata',
+      latin: 'Raphanus sativus',
     },
-    class: 'w-28 h-20'
+    class: 'h-28 w-22' 
   },
   {
     url: mataImageUrl,
@@ -50,12 +50,12 @@ const items = [
     class: 'w-28 h-20'
   },
   {
-    url: redkovkaImageUrl,
+    url: bazalkaImageUrl,
     name: {
-      sk: 'Reďkev siata',
-      latin: 'Raphanus sativus',
+      sk: 'Bazalka pravá',
+      latin: 'Ocimum basilicum',
     },
-    class: 'h-28 w-22' 
+    class: 'w-28 h-20'
   },
 ]
 
@@ -64,11 +64,11 @@ const items = [
 
 
 <template>
-    <div class="pt-8 pb-10">
-        <span class="font-bold text-2xl text-gray-950/80">Katalóg</span>
+    <div class="pt-8 pb-8">
+        <span class="font-bold text-2xl text-gray-950/80 pl-2">Katalóg</span>
     </div>
     <div class="grid grid-cols-2 grid-rows-3 gap-3 px-2">
-      <div v-for="item in items" class="grid  items-center px-5 py-5 flex-col shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-lg">
+      <div v-for="item in items" class="grid  items-center px-5 py-5 flex-col shadow-[0px_0px_15px_1px_rgba(0,0,0,0.15)] rounded-lg">
         <div class="flex justify-center pb-6">
           <img :src="item.url" :class="item.class ?? 'w-24 h-26'" />
         </div>
