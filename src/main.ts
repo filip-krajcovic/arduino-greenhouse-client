@@ -9,12 +9,15 @@ import { mqtt } from '@/plugins/mqtt'
 import { vueKeycloak } from '@baloise/vue-keycloak'
 import { observeAuth } from './modules/iam/authentication'
 
+const dev = import.meta.env.DEV
+const devSuffix = dev ? '.dev' : ''
+
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 app.use(mqtt)
-app.use(vueKeycloak, `/keycloak.json`)
+app.use(vueKeycloak, `/keycloak${devSuffix}.json`)
 observeAuth()
 
 app.mount('#app')
