@@ -7,6 +7,7 @@ import IconProfile from '@/icons/IconProfile.vue';
 import IconRight from '@/icons/IconRight.vue';
 import IconSettings from '@/icons/IconSettings.vue';
 import { computed } from 'vue';
+import UserTitle from './UserTitle.vue';
 
 const props = defineProps(['opened'])
 const emit = defineEmits(['menu-close'])
@@ -24,7 +25,9 @@ const closed = computed(()=> !props.opened)
     <button class="absolute top-0 right-0 mt-8 mr-6" @click="close" type="button" aria-label="btn-close-menu">
       <IconClose class="w-8 h-8"/>
     </button>
-    <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">Ahoj, Filip!</h1>
+    <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">
+      <UserTitle />
+    </h1>
     <RouterLink class="flex items-center justify-between mx-8 mb-8" to="profile" @click="close">
       <div class="flex items-center">
         <IconProfile class="w-5 h-5 mb-0.5"/>

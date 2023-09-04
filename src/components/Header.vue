@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconMenu from '@/icons/IconMenu.vue'
-import IconHistory from '@/icons/IconHistory.vue';
+import LoginButton from './LoginButton.vue'
 
 const emit = defineEmits(['menu-open'])
 
@@ -21,5 +21,6 @@ const openMenu = () => {
                 </RouterLink>
             </div>
         </div>
+        <LoginButton />
     </div>
 </template>

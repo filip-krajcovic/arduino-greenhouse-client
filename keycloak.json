@@ -1,0 +1,10 @@
+{
+  "config": {
+    "url": "https://iam.tiqra.space",
+    "realm": "Arduino",
+    "clientId": "arduino-client"
+  },
+  "initOptions": {
+    "onLoad": "check-sso"
+  }
+}
