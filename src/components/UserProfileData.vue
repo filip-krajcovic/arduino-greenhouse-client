@@ -11,7 +11,7 @@ const { user, isAuthenticated } = storeToRefs(store);
 
 
 <template>
-  <div v-if="isAuthenticated">
+  <div v-if="user && isAuthenticated">
   <div class="flex items-center justify-between pt-8">
       <span class="font-semibold text-2xl">Profil</span>
   </div>
