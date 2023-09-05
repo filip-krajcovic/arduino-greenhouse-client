@@ -2,6 +2,7 @@ import { watch } from 'vue';
 import { useKeycloak } from '@baloise/vue-keycloak';
 import { useUserStore } from '../../stores/users.store';
 import { getLocale } from '@/plugins/i18n';
+import { baseUrl } from '../../constants';
 
 export const reloadUserInfo = async () => {
   const { keycloak } = useKeycloak();
@@ -46,6 +47,8 @@ export const login = () => {
 export const logout = () => {
   const { keycloak } = useKeycloak();
   if (keycloak) {
-    keycloak.logout();
+    keycloak.logout({
+      redirectUri: baseUrl,
+    });
   }
 }
