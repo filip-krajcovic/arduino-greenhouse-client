@@ -17,7 +17,7 @@ const openMenu = () => {
                     <IconMenu class="inline" />
                 </button>
                 <RouterLink to="/">
-                    <span class="text-xl pl-2">Arduino</span>
+                    <span class="text-xl pl-3">Arduino</span>
                 </RouterLink>
             </div>
         </div>
