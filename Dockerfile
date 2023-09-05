@@ -2,7 +2,7 @@
 FROM node:18.16.0-alpine AS build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --ignore-scripts
+RUN npm ci --ignore-scripts --force
 
 COPY Dockerfile ./
 COPY index.html ./
