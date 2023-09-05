@@ -8,6 +8,13 @@ import IconRight from '@/icons/IconRight.vue';
 import IconSettings from '@/icons/IconSettings.vue';
 import { computed } from 'vue';
 import UserTitle from './UserTitle.vue';
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '@/stores/users.store';
+import { login, logout } from '@/modules/iam/authentication';
+
+const store = useUserStore();
+
+const { isAuthenticated } = storeToRefs(store);
 
 const props = defineProps(['opened'])
 const emit = defineEmits(['menu-close'])
@@ -28,13 +35,16 @@ const closed = computed(()=> !props.opened)
     <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">
       <UserTitle />
     </h1>
-    <RouterLink class="flex items-center justify-between mx-8 mb-8" to="profile" @click="close">
+    <RouterLink v-if="isAuthenticated" class="flex items-center justify-between mx-8 mb-4" to="profile" @click="close">
       <div class="flex items-center">
         <IconProfile class="w-5 h-5 mb-0.5"/>
         <p class="pl-3 text-black/80 font-light">Môj účet</p>
       </div>
       <IconRight/>
     </RouterLink>
+    <div v-else class="flex items-center mx-8 mb-4">
+      <button @click="login" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Prihlásiť</button>
+    </div>
     <div class="h-px bg-gray-300"></div>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
       <div class="flex items-center">
@@ -66,7 +76,10 @@ const closed = computed(()=> !props.opened)
       </div>
       <IconRight/>
     </RouterLink>
-  
+    <div v-if="isAuthenticated" class="flex items-center mx-8 mb-4 mt-8">
+      <div class="h-px bg-gray-300"></div>
+      <button @click="logout" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Odhlásiť</button>
+    </div>
   </aside>
 </template>
 
