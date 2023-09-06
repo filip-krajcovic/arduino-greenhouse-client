@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useMeasurementsStore } from '@/stores/measurements.store'
-import { storeToRefs } from 'pinia';
-import IconTemperature from '@/icons/IconTemperature.vue';
+import { storeToRefs } from 'pinia'
+import IconTemperature from '@/icons/IconTemperature.vue'
+import { ContentLoader } from 'vue-content-loader'
 
 const measurementsStore = useMeasurementsStore()
 
@@ -19,8 +20,11 @@ if (!temperature.value) {
   <div class="flex justify-center pb-4 pt-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
     <div class="flex flex-col items-center">
       <IconTemperature />
-      <h1 class="font-bold pt-2 text-lg text-black/70">Teplota vzduchu</h1>
-      <p class="text-sm pt-2 text-black/40">Teplota: {{ temperature }}°C</p>
+      <h1 class="font-bold py-2 text-lg text-black/70">Teplota vzduchu</h1>
+      <p v-if="temperature" class="text-sm text-black/40">Teplota: {{ temperature }}°C</p>
+      <ContentLoader v-else viewBox="0 0 80 20" class="h-5">
+        <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
+      </ContentLoader>
     </div>
   </div>
 </template>
