@@ -15,9 +15,10 @@ COPY vite.config.ts ./
 COPY env.d.ts ./
 COPY .env ./
 COPY ./src/ ./src/
+COPY ./public/ ./public/
 
 RUN npm run build
-COPY keycloak.json ./dist
+#COPY keycloak.json ./dist
 
 # production stage
 FROM nginx:stable-alpine AS production-stage
