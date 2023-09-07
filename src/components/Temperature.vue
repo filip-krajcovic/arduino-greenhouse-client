@@ -17,11 +17,11 @@ if (!temperature.value) {
 </script>
 
 <template>
-  <div class="flex justify-center pb-4 pt-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
+  <div class="flex justify-center pb-4 pt-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl dark:shadow-slate-300">
     <div class="flex flex-col items-center">
       <IconTemperature />
-      <h1 class="font-bold py-2 text-lg text-black/70">Teplota vzduchu</h1>
-      <p v-if="temperature" class="text-sm text-black/40">Teplota: {{ temperature }}°C</p>
+      <h1 class="font-bold py-2 text-lg text-black/70 dark:text-white">Teplota vzduchu</h1>
+      <p v-if="temperature" class="text-sm text-black/40 dark:text-slate-200">Teplota: {{ temperature }}°C</p>
       <ContentLoader v-else viewBox="0 0 80 20" class="h-5">
         <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
       </ContentLoader>

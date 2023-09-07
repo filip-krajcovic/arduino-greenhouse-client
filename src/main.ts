@@ -8,6 +8,7 @@ import router from '@/plugins/router'
 import { mqtt } from '@/plugins/mqtt'
 import { vueKeycloak } from '@baloise/vue-keycloak'
 import { observeAuth } from './modules/iam/authentication'
+import './assets/main.css'
 
 const dev = import.meta.env.DEV
 const devSuffix = dev ? '.dev' : ''
