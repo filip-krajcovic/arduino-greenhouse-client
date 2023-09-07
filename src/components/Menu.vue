@@ -48,14 +48,14 @@ const closed = computed(()=> !props.opened)
     <div class="h-px bg-gray-300"></div>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
       <div class="flex items-center">
-        <IconSettings class="w-5 h-5"/>
+        <IconSettings class="w-4 h-4"/>
         <p class="pl-3 text-base text-black/80 font-light">Nastavenia</p>
       </div>
       <IconRight/>
     </RouterLink>
     <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
       <div class="flex items-center">
-        <IconHistory2 class="w-5 h-5"/>
+        <IconHistory2 class="w-4 h-4"/>
         <p class="pl-3 text-base text-black/80 font-light">História</p>
       </div>
       <div class="flex">
@@ -64,22 +64,19 @@ const closed = computed(()=> !props.opened)
     </RouterLink>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="notifications" @click="close">
       <div class="flex items-center">
-        <IconNotification class="w-5 h-5 mb-px"/>
+        <IconNotification class="w-4 h-4 mb-px"/>
         <p class="pl-3 text-base text-black/80 font-light">Notifikácie</p>
       </div>
       <IconRight/>
     </RouterLink>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="catalogue" @click="close">
       <div class="flex items-center">
-        <IconBook class="w-5 h-5 "/>
+        <IconBook class="w-4 h-4 "/>
         <span class="pl-3 text-base text-black/80 font-light">Katalóg</span>
       </div>
       <IconRight/>
     </RouterLink>
-    <div v-if="isAuthenticated" class="flex items-center mx-8 mb-4 mt-8">
-      <div class="h-px bg-gray-300"></div>
-      <button @click="logout" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Odhlásiť</button>
-    </div>
+    
   </aside>
 </template>
 
