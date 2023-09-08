@@ -7,7 +7,7 @@ const toggleDark = useToggle(isDark)
 
 <template>
   <div>
-    <button class="vt-switch vt-switch-appearance dark:bg-cyan-800" type="button" @click="toggleDark()">
+    <button class="vt-switch vt-switch-appearance dark:bg-cyan-800 border border-slate-500" type="button" @click="toggleDark()">
       <span class="vt-switch-check">
         <span class="vt-switch-icon dark:bg-cyan-950">
           <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="vt-switch-appearance-sun">
@@ -28,7 +28,6 @@ const toggleDark = useToggle(isDark)
   width: 40px;
   height: 22px;
   flex-shrink: 0;
-  border: 1px solid var(--vt-c-divider);
   background-color: var(--vt-c-bg-mute);
   transition: border-color .25s,background-color .25s;
 }
