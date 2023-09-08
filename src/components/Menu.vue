@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import IconBook from '@/icons/IconBook.vue';
-import IconClose from '@/icons/IconClose.vue';
 import IconHistory2 from '@/icons/IconHistory2.vue';
 import IconNotification from '@/icons/IconNotification.vue';
 import IconProfile from '@/icons/IconProfile.vue';
@@ -10,29 +9,24 @@ import { computed } from 'vue';
 import UserTitle from './UserTitle.vue';
 import { storeToRefs } from 'pinia';
 import { useUserStore } from '@/stores/users.store';
-import { login, logout } from '@/modules/iam/authentication';
+import { login } from '@/modules/iam/authentication';
+import { useMenuStore } from '@/stores/menu.store';
 
-const store = useUserStore();
+const store = useUserStore()
 
-const { isAuthenticated } = storeToRefs(store);
+const { isAuthenticated } = storeToRefs(store)
 
-const props = defineProps(['opened'])
-const emit = defineEmits(['menu-close'])
+const menuStore = useMenuStore()
 
-const close = () => {
-  emit('menu-close')
-}
+const { closed } = storeToRefs(menuStore)
 
-const closed = computed(()=> !props.opened)
+const { close } = menuStore
 
 </script>
 
 <template>
-  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white dark:bg-cyan-900 transition-all transform duration-500 will-change-transform" :class="{ closed }">
-    <button class="absolute top-0 right-0 mt-8 mr-6" @click="close" type="button" aria-label="btn-close-menu">
-      <IconClose class="w-8 h-8"/>
-    </button>
-    <h1 class="font-bold text-2xl pl-8 pb-5 pt-20">
+  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white dark:bg-cyan-950 transition-all transform duration-500 will-change-transform" :class="{ closed }">
+    <h1 class="font-bold text-2xl pl-8 pb-5 pt-8">
       <UserTitle />
     </h1>
     <RouterLink v-if="isAuthenticated" class="flex items-center justify-between mx-8 mb-4" to="profile" @click="close">
@@ -81,6 +75,9 @@ const closed = computed(()=> !props.opened)
 </template>
 
 <style scoped>
+aside {
+  margin-top: 60px;
+}
 aside.closed {
   transform: translateX(-110%);
 }

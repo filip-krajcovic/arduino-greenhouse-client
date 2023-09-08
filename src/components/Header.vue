@@ -1,21 +1,13 @@
 <script setup lang="ts">
-import IconMenu from '@/icons/IconMenu.vue'
 import ThemeButton from './ThemeButton.vue'
-
-const emit = defineEmits(['menu-open'])
-
-const openMenu = () => {
-	emit('menu-open')
-}
+import MenuButton from './MenuButton.vue'
 </script>
 
 <template>
 	<div class="bg-cyan-800 text-white py-4 px-4 flex">
 		<div class="flex flex-auto justify-between">
 			<div class="flex">
-				<button type="button" @click="openMenu" aria-label="btn-open-menu">
-					<IconMenu class="inline" />
-				</button>
+				<MenuButton />
 				<RouterLink to="/">
 					<span class="text-xl pl-3">Arduino</span>
 				</RouterLink>
