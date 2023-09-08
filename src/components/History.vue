@@ -2,6 +2,12 @@
 import { useMeasurementsStore } from '@/stores/measurements.store'
 import { storeToRefs } from 'pinia';
 import { ContentLoader } from 'vue-content-loader'
+import { useDark } from '@vueuse/core'
+import { computed } from 'vue';
+
+const isDark = useDark()
+const primaryColor = computed(() => isDark.value ? 'var(--vt-c-loader-primary)': undefined)
+const secondaryColor = computed(() => isDark.value ? 'var(--vt-c-loader-secondary)': undefined)
 
 const measurementsStore = useMeasurementsStore()
 
@@ -16,7 +22,7 @@ fetchMeasurements()
 <template>
   <h1 class="pl-4 py-4 text-xl font-bold">Zoznam meraní:</h1>
   <div class="grid grid-cols-1 gap-4 px-4 pb-8">
-    <div v-if="measurements && measurements.length > 0" v-for="(item, index) in measurements" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
+    <div v-if="measurements && measurements.length > 0" v-for="(item, index) in measurements" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl dark:shadow-slate-300">
       <div>{{ measurements.length - index }}.</div>
       <div>
         Dátum a čas merania:
@@ -27,7 +33,7 @@ fetchMeasurements()
       <div v-if="item.soilMoisture">Vlhkosť pôdy: <b>{{ item.soilMoisture }} %</b></div>
     </div>
     <div v-else v-for="item in 10" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
-      <ContentLoader viewBox="0 0 250 50">
+      <ContentLoader viewBox="0 0 250 50" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
         <rect x="0" y="0" rx="3" ry="3" width="20" height="10" />
         <rect x="0" y="20" rx="3" ry="3" width="250" height="10" />
         <rect x="0" y="40" rx="3" ry="3" width="250" height="10" />

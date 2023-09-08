@@ -28,7 +28,7 @@ const closed = computed(()=> !props.opened)
 </script>
 
 <template>
-  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white transition-all transform duration-500 will-change-transform" :class="{ closed }">
+  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white dark:bg-cyan-900 transition-all transform duration-500 will-change-transform" :class="{ closed }">
     <button class="absolute top-0 right-0 mt-8 mr-6" @click="close" type="button" aria-label="btn-close-menu">
       <IconClose class="w-8 h-8"/>
     </button>
@@ -38,7 +38,7 @@ const closed = computed(()=> !props.opened)
     <RouterLink v-if="isAuthenticated" class="flex items-center justify-between mx-8 mb-4" to="profile" @click="close">
       <div class="flex items-center">
         <IconProfile class="w-5 h-5 mb-0.5"/>
-        <p class="pl-3 text-black/80 font-light">Môj účet</p>
+        <p class="pl-3 text-black/80 dark:text-white font-light">Môj účet</p>
       </div>
       <IconRight/>
     </RouterLink>
@@ -49,14 +49,14 @@ const closed = computed(()=> !props.opened)
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
       <div class="flex items-center">
         <IconSettings class="w-4 h-4"/>
-        <p class="pl-3 text-base text-black/80 font-light">Nastavenia</p>
+        <p class="pl-3 text-base text-black/80 dark:text-white font-light">Nastavenia</p>
       </div>
       <IconRight/>
     </RouterLink>
     <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
       <div class="flex items-center">
         <IconHistory2 class="w-4 h-4"/>
-        <p class="pl-3 text-base text-black/80 font-light">História</p>
+        <p class="pl-3 text-base text-black/80 dark:text-white font-light">História</p>
       </div>
       <div class="flex">
       <IconRight/>
@@ -65,14 +65,14 @@ const closed = computed(()=> !props.opened)
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="notifications" @click="close">
       <div class="flex items-center">
         <IconNotification class="w-4 h-4 mb-px"/>
-        <p class="pl-3 text-base text-black/80 font-light">Notifikácie</p>
+        <p class="pl-3 text-base text-black/80 dark:text-white font-light">Notifikácie</p>
       </div>
       <IconRight/>
     </RouterLink>
     <RouterLink class="flex items-center justify-between mx-8 mt-8" to="catalogue" @click="close">
       <div class="flex items-center">
         <IconBook class="w-4 h-4 "/>
-        <span class="pl-3 text-base text-black/80 font-light">Katalóg</span>
+        <span class="pl-3 text-base text-black/80 dark:text-white font-light">Katalóg</span>
       </div>
       <IconRight/>
     </RouterLink>

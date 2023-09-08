@@ -15,7 +15,7 @@ const closeMenu = () => {
 </script>
 
 <template>
-    <div class="container mx-auto overflow-hidden relative">
+    <div class="container mx-auto overflow-hidden relative bg-white dark:bg-cyan-950 dark:text-white">
         <header>
             <TheHeader @menu-open="openMenu"/>
         </header>
