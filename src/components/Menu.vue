@@ -40,13 +40,13 @@ const { close } = menuStore
       <button @click="login" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Prihlásiť</button>
     </div>
     <div class="h-px bg-gray-300"></div>
-    <RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
+    <!--<RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
       <div class="flex items-center">
         <IconSettings class="w-4 h-4"/>
         <p class="pl-3 text-base text-black/80 dark:text-white font-light">Nastavenia</p>
       </div>
       <IconRight/>
-    </RouterLink>
+    </RouterLink>-->
     <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
       <div class="flex items-center">
         <IconHistory2 class="w-4 h-4"/>
