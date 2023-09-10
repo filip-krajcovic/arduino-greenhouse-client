@@ -19,21 +19,21 @@ const { user, isAuthenticated } = storeToRefs(store);
       <span class="text-black/80 dark:text-slate-300 font-light text-sm">Email</span>
   </div>
   <div class="pt-2">
-      <input v-model="user.email" class="focus:outline-none w-full bg-transparent text-black dark:text-white" type="text" disabled>
+      <span class="focus:outline-none w-full bg-transparent text-black dark:text-white" type="text">{{ user.email }}</span>
   </div>
   <div class="h-px bg-gray-300"></div>
   <div class="pt-6">
       <span class="text-black/80 dark:text-slate-300 font-light text-sm">Meno</span>
   </div>
   <div class="pt-3 pb-2">
-      <input v-model="user.firstName" class="focus:outline-none w-full bg-transparent text-black dark:text-white" type="text" disabled>
+      <span class="focus:outline-none w-full bg-transparent text-black dark:text-white" type="text">{{user.firstName}}</span>
   </div>
   <div class="h-px bg-gray-300"></div>
   <div class="pt-6">
       <span class="text-black/80 dark:text-slate-300 font-light text-sm">Priezvisko</span>
   </div>
   <div class="pt-3 pb-2">
-      <input v-model="user.lastName" class="focus:outline-none w-full bg-transparent text-black dark:text-white" type="text" disabled>
+      <span class="focus:outline-none w-full bg-transparent text-black dark:text-white" type="text">{{ user.lastName }}</span>
   </div>
   <div class="h-px bg-gray-300"></div>
   <div class="pt-8">
