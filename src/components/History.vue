@@ -21,8 +21,8 @@ fetchMeasurements()
 
 <template>
   <h1 class="pl-4 py-4 text-xl font-bold">Zoznam meraní:</h1>
-  <div class="grid grid-cols-1 gap-4 px-4 pb-8">
-    <div v-if="measurements && measurements.length > 0" v-for="(item, index) in measurements" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl dark:shadow-slate-300">
+  <div class="grid grid-cols-1 gap-4 px-2 pb-8">
+    <div v-if="measurements && measurements.length > 0" v-for="(item, index) in measurements" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl dark:shadow-slate-300 text-sm">
       <div>{{ measurements.length - index }}.</div>
       <div>
         Dátum a čas merania:
