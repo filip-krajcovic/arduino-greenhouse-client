@@ -13,7 +13,7 @@ import { items } from '@/services/catalogue.service';
         <span class="font-bold text-2xl text-gray-950/80 dark:text-slate-100 pl-2">Katalóg</span>
     </div>
     <div class="grid grid-cols-2 grid-rows-3 gap-3 px-2">
-      <RouterLink v-for="item in items" :to="{ name: 'cataloguedetail', params: { id: item.id } }" @click="close" class="grid items-center px-5 py-5 flex-col shadow-[0px_0px_15px_1px_rgba(0,0,0,0.15)] rounded-lg dark:bg-cyan-800">
+      <RouterLink v-for="item in items" :to="{ name: 'cataloguedetail', params: { id: item.id } }" class="grid items-center px-5 py-5 flex-col shadow-[0px_0px_15px_1px_rgba(0,0,0,0.15)] rounded-lg dark:bg-cyan-800">
         <div class="flex justify-center pb-6">
           <img :src="item.url" :class="item.class ??'w-24 h-26'" />
         </div>
