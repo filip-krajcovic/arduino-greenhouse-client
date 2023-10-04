@@ -5,6 +5,7 @@ import CatalogueView from '@/views/CatalogueView.vue'
 import NotificationsView from '@/views/NotificationsView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import SettingsView from '@/views/SettingsView.vue'
+import CatalogueDetailView from '@/views/CatalogueDetailView.vue'
 
 
 const router = createRouter({
@@ -24,6 +25,11 @@ const router = createRouter({
       path: '/catalogue',
       name: 'catalogue',
       component: CatalogueView,
+    },
+    {
+      path: '/catalogue/:id',
+      name: 'cataloguedetail',
+      component: CatalogueDetailView,
     },
     {
       path: '/notifications',
