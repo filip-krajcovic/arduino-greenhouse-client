@@ -4,6 +4,7 @@ import { Topics } from './mqtt.topics'
 import type { IMessage } from './mqtt.types'
 import { useMeasurementsStore } from '@/stores/measurements.store'
 import { useWindowStore } from '@/stores/window.store'
+import { useLightsStore } from '@/stores/lights.store';
 import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from './mqtt.keys'
 
@@ -42,6 +43,9 @@ export const mqtt: Plugin = {
 
     const windowStore = useWindowStore()
 
+    const lightsStore = useLightsStore()
+
+    const { lightsOn, lightsOff } = lightsStore
     const { windowOpen, windowClose } = windowStore
 
     const onMessageReceived = (topic: string, value: number) => {
@@ -63,6 +67,14 @@ export const mqtt: Plugin = {
             windowOpen()
           } else if (value === 0) {
             windowClose()
+          }
+          break
+        }
+        case Topics.lights: {
+          if(value === 1){
+            lightsOn()
+          } else if(value === 0){
+            lightsOff()
           }
           break
         }
