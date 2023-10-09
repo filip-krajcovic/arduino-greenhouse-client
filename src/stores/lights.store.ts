@@ -13,14 +13,22 @@ const enum lightsState {
 
 export const useLightsStore = defineStore('lights', () => {
   const on: Ref<boolean | undefined> = ref()
-  const off = computed(() => { /*TODO*/ })
+  const off = computed(() => on.value === undefined ? undefined : !on.value )
   const lightsStateDesc = computed(() => {
-    /*TODO*/
+    if (on.value === true){
+      return lightsState.on
+
+    } else if (on.value === false) {
+      return lightsState.off
+
+    } else {
+      return undefined
+    }
    })
 
-  const lightsOn = () => { /*TODO*/ }
+  const lightsOn = () => on.value = true
 
-  const lightsOff = () => { /*TODO*/ }
+  const lightsOff = () => on.value = false
 
   return {
     on,
