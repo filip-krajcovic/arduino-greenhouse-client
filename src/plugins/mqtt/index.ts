@@ -3,6 +3,7 @@ import { useMqttClient } from './mqtt.client'
 import { Topics } from './mqtt.topics'
 import type { IMessage } from './mqtt.types'
 import { useMeasurementsStore } from '@/stores/measurements.store'
+import { useWindowStore } from '@/stores/window.store'
 import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from './mqtt.keys'
 
@@ -20,7 +21,7 @@ export const mqtt: Plugin = {
  
     watch(connected, () => {
       console.log('MQTT client connected');
-      subscribe([Topics.temperature, Topics.humidity, Topics.soilMoisture])
+      subscribe([Topics.temperature, Topics.humidity, Topics.soilMoisture, Topics.window, Topics.lights])
     })
 
     watch(messages, (value: Array<IMessage>) => {
@@ -39,6 +40,10 @@ export const mqtt: Plugin = {
 
     const { temperature, humidity, soilMoisture } = storeToRefs(measurementsStore)
 
+    const windowStore = useWindowStore()
+
+    const { windowOpen, windowClose } = windowStore
+
     const onMessageReceived = (topic: string, value: number) => {
       switch(topic) { 
         case Topics.humidity: { 
@@ -52,7 +57,15 @@ export const mqtt: Plugin = {
         case Topics.soilMoisture: { 
           soilMoisture.value = value;
           break
-        } 
+        }
+        case Topics.window: { 
+          if (value === 1) {
+            windowOpen()
+          } else if (value === 0) {
+            windowClose()
+          }
+          break
+        }
         default: { 
            console.log('unknown topic')
            break
