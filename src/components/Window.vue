@@ -14,12 +14,12 @@ const { windowOpen, windowClose } = store
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
 const openWindow = () => {
-	mqtt?.publish('window', windowActions.open)
+	mqtt?.publish('arduino/window', windowActions.open)
 	windowOpen()
 }
 
 const closeWindow = () => {
-	mqtt?.publish('window', windowActions.close)
+	mqtt?.publish('arduino/window', windowActions.close)
 	windowClose()
 }
 
