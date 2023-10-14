@@ -17,13 +17,13 @@ const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
 const turnLightsOn = () => {
 	
-  mqtt?.publish('lights', lightsActions.on)
+  mqtt?.publish('arduino/lights', lightsActions.on)
   lightsOn()
 }
 
 const turnLightsOff = () => {
 
-  mqtt?.publish('lights', lightsActions.off)
+  mqtt?.publish('arduino/lights', lightsActions.off)
   lightsOff()
 }
 
