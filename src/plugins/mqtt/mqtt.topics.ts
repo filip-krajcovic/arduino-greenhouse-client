@@ -1,7 +1,7 @@
 export enum Topics {
-  humidity = 'humidity',
-  temperature = 'temperature',
-  soilMoisture = 'soil-moisture',
-  window = 'window',
-  lights = 'lights',
+  humidity = 'arduino/humidity',
+  temperature = 'arduino/temperature',
+  soilMoisture = 'arduino/soil-moisture',
+  window = 'arduino/window',
+  lights = 'arduino/lights',
 }
