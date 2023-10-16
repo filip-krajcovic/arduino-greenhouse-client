@@ -27,7 +27,7 @@ if (!temperature.value) {
     <div class="flex flex-col items-center">
       <IconTemperature />
       <h1 class="font-bold py-2 text-lg text-black/70 dark:text-white">Teplota vzduchu</h1>
-      <p v-if="temperature" class="text-sm text-black/40 dark:text-slate-200">Teplota: {{ temperature }}°C</p>
+      <p v-if="temperature" class="text-sm text-black/40 dark:text-slate-200">Teplota: {{ temperature.temperature }}°C</p>
       <ContentLoader v-else viewBox="0 0 80 20" class="h-5" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
         <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
       </ContentLoader>
