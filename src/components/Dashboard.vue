@@ -9,14 +9,14 @@ import Window from './Window.vue'
 </script>
 
 <template>
-	<div class="grid grid-cols-2 gap-4 py-8">
-		<Humidity />
+	<div class="grid grid-cols-2 gap-3 py-8">
 		<Temperature />
+		<Humidity />
 	</div>
 	<SoilMoisture />
-	<div class="grid grid-cols-2 pt-4 pb-3">
+	<div class="grid grid-cols-2 py-4">
 		<Window />
 		<Lights />
 	</div>
-	<Scheduler />
+		<Scheduler/>
 </template>

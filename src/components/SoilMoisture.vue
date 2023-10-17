@@ -22,7 +22,7 @@ if (!soilMoisture.value) {
 </script>
 
 <template>
-  <div class="pt-3 pb-3">
+  <div class="py-4">
     <h1 class="text-2xl text-black/70 font-bold dark:text-white">Snímač vlhkosti pôdy</h1>
     <h3 class="text-lg pt-2 text-black/70 dark:text-slate-200">Vlhkosť pôdy je 
       <span v-if="soilMoisture" class="font-medium text-green-600/95 dark:text-green-300/95"> {{ soilMoisture }}%</span>

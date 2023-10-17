@@ -1,3 +1,7 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
   <div class="pt-4">
 		<h1 class="text-2xl text-black/70 dark:text-white font-bold">Harmonogram</h1>
@@ -10,7 +14,8 @@
 
 		<div class="flex flex-col">
 			<h3 class="text-xl text-black/70 dark:text-white pb-2">Vypnúť</h3>
-			<input class="text-black/70 dark:text-white text-2xl bg-gray-300 dark:bg-cyan-800  rounded-2xl px-4 py-1" type="time" value="00:00">
+			<input class="text-black/70 dark:text-white text-2xl bg-gray-300 dark:bg-cyan-800  rounded-2xl px-4 py-1" type="time" value="00:00" min="0" max="23" >
 		</div>
 	</div>
 </template>
+	
