@@ -33,12 +33,12 @@ if (!soilMoisture.value) {
 
 
 <template>
-    <div class="flex py-2 flex-col border rounded-xl border-slate-300">
+    <div class="flex py-2 flex-col border rounded-xl border-neutral-300 dark:bg-neutral-800 dark:border-neutral-800">
       <div class="flex items-center pl-2">
         <IconSoilMoisture class="mr-2" />
         <div class="flex flex-col">
           <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">Vlhkosť pôdy</p>
-          <span class="text-xs text-slate-400">{{ timestamp?.value }}</span>
+          <span class="text-xs text-neutral-400">{{ timestamp?.value }}</span>
         </div>  
       </div>
       <div class="flex justify-center py-3">

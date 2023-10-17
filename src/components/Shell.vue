@@ -6,7 +6,7 @@ import { ref } from 'vue'
 </script>
 
 <template>
-    <div class="container mx-auto overflow-hidden relative bg-white dark:bg-cyan-950 dark:text-white">
+    <div class="container mx-auto overflow-hidden relative bg-white dark:bg-black dark:text-white">
         <header>
             <TheHeader />
         </header>

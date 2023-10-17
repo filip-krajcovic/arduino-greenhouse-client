@@ -9,12 +9,12 @@
 	<div class="grid grid-cols-2 pt-4 ">
 		<div class="flex flex-col">
 			<h3 class="text-xl text-black/70 dark:text-white pb-2">Zapnúť</h3>
-			<input class="text-black/70 dark:text-white text-2xl rounded-2xl bg-gray-300 dark:bg-cyan-800 px-4 py-1 " type="time" value="00:00">
+			<input class="text-black/70 dark:text-white text-2xl rounded-2xl bg-neutral-300 dark:bg-neutral-800 px-4 py-1 " type="time" value="00:00">
 		</div>
 
 		<div class="flex flex-col">
 			<h3 class="text-xl text-black/70 dark:text-white pb-2">Vypnúť</h3>
-			<input class="text-black/70 dark:text-white text-2xl bg-gray-300 dark:bg-cyan-800  rounded-2xl px-4 py-1" type="time" value="00:00" min="0" max="23" >
+			<input class="text-black/70 dark:text-white text-2xl bg-neutral-300 dark:bg-neutral-800 rounded-2xl px-4 py-1" type="time" value="00:00" min="0" max="23" >
 		</div>
 	</div>
 </template>

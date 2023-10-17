@@ -28,7 +28,7 @@ onMounted(()=>{
                 <img :src="data.url" class="w-6/12 md:w-3/12" />
             </div>
             <h1 class="font-bold text-3xl tracking-wide text-black/90 pb-1 dark:text-white ">{{ data.name.sk }}</h1>
-            <span class="text-black/60 italic dark:text-white ">{{data.name.latin}}</span>
+            <span class="text-black/60 italic dark:text-neutral-200 ">{{data.name.latin}}</span>
             <div class="pt-8">
                 <div v-for="condition in data.conditions" class="flex pt-2"> 
                     <div><IconLeaf class="mr-2"/></div> 

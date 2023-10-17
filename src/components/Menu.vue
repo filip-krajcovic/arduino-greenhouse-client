@@ -25,7 +25,7 @@ const { close } = menuStore
 </script>
 
 <template>
-  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white dark:bg-cyan-950 transition-all transform duration-500 will-change-transform" :class="{ closed }">
+  <aside class="absolute top-0 bottom-0 left-0 right-0 bg-white dark:bg-neutral-800 transition-all transform duration-500 will-change-transform" :class="{ closed }">
     <h1 class="font-bold text-2xl pl-8 pb-5 pt-8">
       <UserTitle />
     </h1>
@@ -39,7 +39,7 @@ const { close } = menuStore
     <div v-else class="flex items-center mx-8 mb-4">
       <button @click="login" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Prihlásiť</button>
     </div>
-    <div class="h-px bg-gray-300"></div>
+    <div class="h-px bg-neutral-300 dark:bg-neutral-600"></div>
     <!--<RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
       <div class="flex items-center">
         <IconSettings class="w-4 h-4"/>
