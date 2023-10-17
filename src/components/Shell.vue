@@ -10,7 +10,7 @@ import { ref } from 'vue'
         <header>
             <TheHeader />
         </header>
-        <main class="min-h-screen px-4">
+        <main class="min-h-screen px-3">
             <RouterView />
         </main>
         <Menu />
