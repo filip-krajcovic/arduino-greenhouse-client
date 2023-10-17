@@ -4,6 +4,8 @@ import { storeToRefs } from 'pinia'
 import { ContentLoader } from 'vue-content-loader'
 import { useDark } from '@vueuse/core'
 import { computed } from 'vue';
+import IconSoilMoisture from '@/icons/IconSoilMoisture.vue'
+
 
 const isDark = useDark()
 const primaryColor = computed(() => isDark.value ? 'var(--vt-c-loader-primary)': undefined)
@@ -21,14 +23,22 @@ if (!soilMoisture.value) {
 
 </script>
 
+
+
 <template>
-  <div class="py-4">
-    <h1 class="text-2xl text-black/70 font-bold dark:text-white">Snímač vlhkosti pôdy</h1>
-    <h3 class="text-lg pt-2 text-black/70 dark:text-slate-200">Vlhkosť pôdy je 
-      <span v-if="soilMoisture" class="font-medium text-green-600/95 dark:text-green-300/95"> {{ soilMoisture }}%</span>
-      <ContentLoader v-else viewBox="0 0 80 20" class="h-5 inline" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
-        <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
-      </ContentLoader>
-    </h3>
-  </div>
+    <div class="flex py-2 flex-col border rounded-xl border-slate-300">
+      <div class="flex items-center pl-2">
+        <IconSoilMoisture class="mr-2" />
+        <div class="flex flex-col">
+          <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">Vlhkosť pôdy</p>
+          <span class="text-xs text-slate-400">40 second ago</span>
+        </div>  
+      </div>
+      <div class="flex justify-center py-3">
+        <h1 v-if="soilMoisture" class="text-4xl text-black font-bold dark:text-white">{{ soilMoisture }}°C</h1>
+        <ContentLoader v-else viewBox="0 0 80 20" class="h-5" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
+          <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
+        </ContentLoader>
+      </div>
+    </div>
 </template>
