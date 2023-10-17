@@ -51,15 +51,15 @@ export const mqtt: Plugin = {
     const onMessageReceived = (topic: string, value: number) => {
       switch(topic) { 
         case Topics.humidity: { 
-           humidity.value = value
+           humidity.value = { humidity: value, timestamp: new Date() }
            break
         } 
         case Topics.temperature: { 
-           temperature.value = value
+           temperature.value = { temperature: value, timestamp: new Date() }
            break
         }
         case Topics.soilMoisture: { 
-          soilMoisture.value = value;
+          soilMoisture.value = { soilMoisture: value, timestamp: new Date() };
           break
         }
         case Topics.window: { 
