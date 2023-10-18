@@ -66,8 +66,8 @@ body {
   --vt-c-purple-dark: #823c83;
   --vt-c-purple-darker: #602960;
 
-  --vt-c-loader-primary: #164e63;
-  --vt-c-loader-secondary: #155e75;
+  --vt-c-loader-primary: #262626;
+  --vt-c-loader-secondary: #404040;
 
   --vt-c-bg: var(--vt-c-white);
   --vt-c-bg-soft: var(--vt-c-white-soft);
