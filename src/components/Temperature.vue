@@ -5,6 +5,7 @@ import IconTemperature from '@/icons/IconTemperature.vue'
 import { ContentLoader } from 'vue-content-loader'
 import { useDark } from '@vueuse/core'
 import { computed } from 'vue';
+import { useTimeAgo } from '@vueuse/core'
 
 const isDark = useDark()
 const primaryColor = computed(() => isDark.value ? 'var(--vt-c-loader-primary)': undefined)
@@ -15,6 +16,12 @@ const measurementsStore = useMeasurementsStore()
 const { fetchLastTemperature } = measurementsStore
 
 const { temperature } = storeToRefs(measurementsStore)
+
+const timestamp = computed(() => {
+  const d = temperature.value?.timestamp
+  const r = d ? useTimeAgo(d) : undefined
+  return r
+})
 
 if (!temperature.value) {
   fetchLastTemperature()
@@ -30,11 +37,11 @@ if (!temperature.value) {
         <IconTemperature class="mr-2" />
         <div class="flex flex-col">
           <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">Teplota vzduchu</p>
-          <span class="text-xs text-slate-400">40 second ago</span>
+          <span class="text-xs text-slate-400">{{ timestamp?.value }}</span>
         </div>  
       </div>
       <div class="flex justify-center py-3">
-        <h1 v-if="temperature" class="text-4xl text-black dark:text-white">{{ temperature }}°C</h1>
+        <h1 v-if="temperature" class="text-4xl text-black dark:text-white">{{ temperature.temperature }}°C</h1>
         <ContentLoader v-else viewBox="0 0 80 20" class="h-5" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
           <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
         </ContentLoader>
