@@ -38,13 +38,16 @@ if (!soilMoisture.value) {
         <IconSoilMoisture class="mr-2" />
         <div class="flex flex-col">
           <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">Vlhkosť pôdy</p>
-          <span class="text-xs text-neutral-400">{{ timestamp?.value }}</span>
+          <span v-if="timestamp?.value" class="text-xs text-neutral-400">{{ timestamp?.value }}</span>
+          <ContentLoader v-else viewBox="0 0 95 20" class="h-5" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
+            <rect x="0" y="0" rx="3" ry="3" width="100%" height="100%" />
+          </ContentLoader>
         </div>  
       </div>
       <div class="flex justify-center py-3">
-        <h1 v-if="soilMoisture" class="text-4xl text-black dark:text-white">{{ soilMoisture.soilMoisture }}%</h1>
-        <ContentLoader v-else viewBox="0 0 80 20" class="h-5" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
-          <rect x="0" y="0" rx="3" ry="3" width="100%" height="20" />
+        <h1 v-if="soilMoisture" class="text-4xl text-black dark:text-white">{{ soilMoisture?.soilMoisture }}%</h1>
+        <ContentLoader v-else viewBox="0 0 80 20" class="h-10" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
+          <rect x="0" y="0" rx="3" ry="3" width="100%" height="100%" />
         </ContentLoader>
       </div>
     </div>
