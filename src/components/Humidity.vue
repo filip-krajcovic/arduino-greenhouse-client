@@ -42,7 +42,7 @@ if (!humidity.value) {
       </div>
     </div>
     <div class="flex justify-center py-3">
-      <h1 v-if="humidity" class="text-4xl text-black dark:text-white"> {{ humidity?.humidity }}%</h1>
+      <h1 v-if="humidity?.humidity" class="text-4xl text-black dark:text-white"> {{ humidity?.humidity }}%</h1>
       <ContentLoader v-else viewBox="0 0 80 20" class="h-10" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
         <rect x="0" y="0" rx="3" ry="3" width="100%" height="100%" />
       </ContentLoader>

@@ -32,7 +32,7 @@ fetchMeasurements()
       <div v-if="item.humidity">Vlhkosť vzduchu: <b>{{ item.humidity }} %</b></div>
       <div v-if="item.soilMoisture">Vlhkosť pôdy: <b>{{ item.soilMoisture }} %</b></div>
     </div>
-    <div v-else v-for="item in 10" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl">
+    <div v-else v-for="item in 10" class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl dark:bg-neutral-800 text-sm">
       <ContentLoader viewBox="0 0 250 36" :primaryColor="primaryColor" :secondaryColor="secondaryColor">
         <rect x="0" y="0" rx="3" ry="3" width="20" height="10" />
         <rect x="0" y="12" rx="3" ry="3" width="250" height="10" />
