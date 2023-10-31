@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ThemeButton from './ThemeButton.vue'
 import MenuButton from './MenuButton.vue'
-import { useStatusStore, statusActions } from '@/stores/status.store';
+import { useStatusStore } from '@/stores/status.store';
 import { storeToRefs } from 'pinia'
 
 
