@@ -4,4 +4,5 @@ export enum Topics {
   soilMoisture = 'arduino/soil-moisture',
   window = 'arduino/window',
   lights = 'arduino/lights',
+  status = 'arduino/status',
 }
