@@ -18,5 +18,4 @@ import Window from './Window.vue'
 		<Window />
 		<Lights />
 	</div>
-		<Scheduler/>
 </template>

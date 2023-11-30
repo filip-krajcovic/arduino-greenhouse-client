@@ -6,6 +6,7 @@ import NotificationsView from '@/views/NotificationsView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import SettingsView from '@/views/SettingsView.vue'
 import CatalogueDetailView from '@/views/CatalogueDetailView.vue'
+import SchedulerlView from '@/views/SchedulerView.vue'
 
 
 const router = createRouter({
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/settings',
       name: 'settings',
       component: SettingsView,
+    },
+    {
+      path: '/scheduler',
+      name: 'scheduler',
+      component: SchedulerlView,
     },
   ]
 })

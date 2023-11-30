@@ -4,6 +4,7 @@ import IconHistory2 from '@/icons/IconHistory2.vue';
 import IconNotification from '@/icons/IconNotification.vue';
 import IconProfile from '@/icons/IconProfile.vue';
 import IconRight from '@/icons/IconRight.vue';
+import IconScheduler from '@/icons/IconScheduler.vue';
 import IconSettings from '@/icons/IconSettings.vue';
 import { computed } from 'vue';
 import UserTitle from './UserTitle.vue';
@@ -11,6 +12,7 @@ import { storeToRefs } from 'pinia';
 import { useUserStore } from '@/stores/users.store';
 import { login } from '@/modules/iam/authentication';
 import { useMenuStore } from '@/stores/menu.store';
+
 
 const store = useUserStore()
 
@@ -47,29 +49,38 @@ const { close } = menuStore
       </div>
       <IconRight/>
     </RouterLink>-->
-    <RouterLink class="flex justify-between items-center mx-8 mt-8" to="history" @click="close">
+    <div class="px-8 pt-8">
+    <RouterLink class="flex justify-between items-center" to="history" @click="close">
       <div class="flex items-center">
-        <IconHistory2 class="w-4 h-4"/>
+        <IconHistory2 class="w-4 h-4 ml-1"/>
         <p class="pl-3 text-base text-black/80 dark:text-white font-light">História</p>
       </div>
       <div class="flex">
       <IconRight/>
       </div>
     </RouterLink>
-    <RouterLink class="flex items-center justify-between mx-8 mt-8" to="notifications" @click="close">
+    <RouterLink class="flex items-center justify-between mt-8" to="notifications" @click="close">
       <div class="flex items-center">
-        <IconNotification class="w-4 h-4 mb-px"/>
+        <IconNotification class="w-4 h-4 mb-px ml-1"/>
         <p class="pl-3 text-base text-black/80 dark:text-white font-light">Notifikácie</p>
       </div>
       <IconRight/>
     </RouterLink>
-    <RouterLink class="flex items-center justify-between mx-8 mt-8" to="catalogue" @click="close">
+    <RouterLink class="flex items-center justify-between mt-8" to="scheduler" @click="close">
       <div class="flex items-center">
-        <IconBook class="w-4 h-4 "/>
+        <IconScheduler class="w-6 h-6 mb-px ml-px"/>
+        <p class="pl-2 text-base text-black/80 dark:text-white font-light">Harmonogram</p>
+      </div>
+      <IconRight/>
+    </RouterLink>
+    <RouterLink class="flex items-center justify-between mt-8" to="catalogue" @click="close">
+      <div class="flex items-center">
+        <IconBook class="w-4 h-4 ml-1"/>
         <span class="pl-3 text-base text-black/80 dark:text-white font-light">Katalóg</span>
       </div>
       <IconRight/>
     </RouterLink>
+    </div>
     
   </aside>
 </template>
