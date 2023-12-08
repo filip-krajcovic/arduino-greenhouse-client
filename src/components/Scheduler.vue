@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, inject } from 'vue';
+import { useTimerStore } from '@/stores/timer.store';
+import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
+import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
+
+const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
+
 
 const timeOn = ref();
 const timeOff = ref();
 
-const hourOn = ref()
-const minuteOn = ref()
-const hourOff = ref()
-const minuteOff = ref()
+const hourOn = ref();
+const minuteOn = ref();
+const hourOff = ref();
+const minuteOff = ref();
 
 watch(timeOn, (value: string) => {
 	console.log(value);
@@ -26,6 +32,31 @@ watch(timeOff, (value: string) => {
 	}
 })
 
+const { save, read } = useTimerStore() ;
+
+const storeData = read();
+
+if (storeData) {
+	hourOn.value = storeData.hourOn
+	minuteOn.value = storeData.minuteOn
+	hourOff.value = storeData.hourOff
+	minuteOff.value = storeData.minuteOff
+	if (hourOn.value && minuteOn.value){
+		timeOn.value = hourOn.value + ':' + minuteOn.value
+	}
+	if (hourOff.value && minuteOff.value){
+		timeOff.value = hourOff.value + ':' + minuteOff.value
+	}
+}
+
+const saveData = () => {
+	save(hourOn.value, minuteOn.value, hourOff.value, minuteOff.value )
+	mqtt?.publish('arduino/timer', JSON.stringify(read()))
+}
+
+
+
+
 </script>
 
 <template>
@@ -34,17 +65,14 @@ watch(timeOff, (value: string) => {
 			<label>Čas zapnutia svetiel : </label> 
 			<input type="text" class="w-16" v-model.lazy="timeOn" />
 			<div v-if="hourOn && minuteOn">
-				<div>{{ hourOn }}</div>
-				<div>{{ minuteOn }}</div>
 			</div>
 		</div>
 		<div class="pt-2">
 			<label>Čas vypnutia svetiel : </label> 
 			<input type="text" class="w-16" v-model.lazy="timeOff"/>
 			<div v-if="hourOff && minuteOff">
-				<div>{{ hourOff }}</div>
-				<div>{{ minuteOff }}</div>
 			</div> 
+			<button class="border" @click="saveData">Save</button>
 		</div>
 	</div>
 

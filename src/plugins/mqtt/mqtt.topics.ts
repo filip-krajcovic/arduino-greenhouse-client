@@ -5,4 +5,5 @@ export enum Topics {
   window = 'arduino/window',
   lights = 'arduino/lights',
   status = 'arduino/status',
+  timer = 'arduino/timer',
 }

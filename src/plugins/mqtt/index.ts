@@ -23,7 +23,7 @@ export const mqtt: Plugin = {
  
     watch(connected, () => {
       console.log('MQTT client connected');
-      subscribe([Topics.temperature, Topics.humidity, Topics.soilMoisture, Topics.window, Topics.lights, Topics.status])
+      subscribe([Topics.temperature, Topics.humidity, Topics.soilMoisture, Topics.window, Topics.lights, Topics.status,])
     })
 
     watch(messages, (value: Array<IMessage>) => {
