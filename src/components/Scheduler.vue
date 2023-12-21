@@ -60,19 +60,19 @@ const saveData = () => {
 </script>
 
 <template>
-	<div class="mt-10 flex flex-col">
-		<div>
-			<label>Čas zapnutia svetiel : </label> 
-			<input type="text" class="w-16" v-model.lazy="timeOn" />
+	<div class="mt-10 flex flex-col ">
+		<button class="rounded bg-green-600 text-white py-0.5 px-0.5 w-16 self-end" @click="saveData">Uložiť</button>
+		<div class="pt-10">
+			<label class="text-xl">Čas zapnutia svetiel : </label> 
+			<input type="text" class="w-16 text-lg" v-model.lazy="timeOn" />
 			<div v-if="hourOn && minuteOn">
 			</div>
 		</div>
-		<div class="pt-2">
-			<label>Čas vypnutia svetiel : </label> 
-			<input type="text" class="w-16" v-model.lazy="timeOff"/>
+		<div class="pt-2 pb-6">
+			<label class="text-xl">Čas vypnutia svetiel : </label> 
+			<input type="text" class="w-16 text-lg" v-model.lazy="timeOff"/>
 			<div v-if="hourOff && minuteOff">
 			</div> 
-			<button class="border" @click="saveData">Save</button>
 		</div>
 	</div>
 
