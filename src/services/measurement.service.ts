@@ -3,8 +3,8 @@ import { callApi } from "./api.service"
 import type { IMeasurement, ITemperature, IHumidity, ISoilMoisture } from "./measurement.interface"
 
 
-export const getMeasurements = async (): Promise<Array<IMeasurement>> => {
-  return callApi<Array<IMeasurement>>(`${API.baseUrl}/${API.messagesEndpoint}`)
+export const getMeasurements = async (skip: number, limit: number): Promise<Array<IMeasurement>> => {
+  return callApi<Array<IMeasurement>>(`${API.baseUrl}/${API.messagesEndpoint}?skip=${skip}&limit=${limit}`)
 }
 
 export const getLastTemperature = async (): Promise<ITemperature> => {
