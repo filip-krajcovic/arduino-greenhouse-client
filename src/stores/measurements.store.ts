@@ -10,8 +10,11 @@ export const useMeasurementsStore = defineStore('measurements', () => {
   const humidity: Ref<IHumidity | undefined> = ref()
   const soilMoisture: Ref<ISoilMoisture | undefined> = ref()
 
+  const skip: Ref<number> = ref(0)
+  const limit: Ref<number> = ref(20)
+
   const fetchMeasurements = async () => {
-    measurements.value = await getMeasurements()
+    measurements.value = await getMeasurements(skip.value, limit.value)
   }
 
   const fetchLastTemperature = async () => {
@@ -31,6 +34,8 @@ export const useMeasurementsStore = defineStore('measurements', () => {
     temperature,
     humidity,
     soilMoisture,
+    skip,
+    limit,
     fetchMeasurements,
     fetchLastTemperature,
     fetchLastHumidity,
