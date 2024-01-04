@@ -1,10 +1,11 @@
-import { ref, type Ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
 import { defineStore } from 'pinia'
-import { getLastHumidity, getLastSoilMoisture, getLastTemperature, getMeasurements } from '@/services/measurement.service';
+import { getLastHumidity, getLastSoilMoisture, getLastTemperature, getMeasurements, getMeasurementsCount } from '@/services/measurement.service';
 import type { IHumidity, IMeasurement, ISoilMoisture, ITemperature } from '@/services/measurement.interface';
 
 export const useMeasurementsStore = defineStore('measurements', () => {
 
+  const _measurementsCount: Ref<number | undefined> = ref()
   const measurements: Ref<Array<IMeasurement>> = ref([])
   const temperature: Ref<ITemperature | undefined> = ref()
   const humidity: Ref<IHumidity | undefined> = ref()
@@ -16,6 +17,11 @@ export const useMeasurementsStore = defineStore('measurements', () => {
   const fetchMeasurements = async () => {
     measurements.value = await getMeasurements(skip.value, limit.value)
   }
+
+  const measurementsCount = computed(async () => {
+    _measurementsCount.value = _measurementsCount.value || await getMeasurementsCount()
+    return _measurementsCount.value
+  })
 
   const fetchLastTemperature = async () => {
     temperature.value = await getLastTemperature()
@@ -30,6 +36,7 @@ export const useMeasurementsStore = defineStore('measurements', () => {
   }
 
   return {
+    measurementsCount,
     measurements,
     temperature,
     humidity,

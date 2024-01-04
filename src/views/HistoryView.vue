@@ -3,5 +3,7 @@ import History from '../components/History.vue'
 </script>
 
 <template>
-  <History />
+  <Suspense>
+    <History />
+  </Suspense>
 </template>

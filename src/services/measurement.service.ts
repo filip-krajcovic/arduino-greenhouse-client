@@ -7,6 +7,10 @@ export const getMeasurements = async (skip: number, limit: number): Promise<Arra
   return callApi<Array<IMeasurement>>(`${API.baseUrl}/${API.messagesEndpoint}?skip=${skip}&limit=${limit}`)
 }
 
+export const getMeasurementsCount = async (): Promise<number> => {
+  return callApi<number>(`${API.baseUrl}/${API.messagesEndpoint}/count`)
+}
+
 export const getLastTemperature = async (): Promise<ITemperature> => {
   return await callApi<ITemperature>(`${API.baseUrl}/${API.temperatureEndpoint}/last`)
 }

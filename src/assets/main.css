@@ -110,3 +110,18 @@ body {
   --vt-c-text-inverse-4: var(--vt-c-text-light-4);
   --vt-c-brand-highlight: var(--vt-c-brand-light);
 }
+
+.dark .p-skeleton {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .p-skeleton::after {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+}
+
+.p-skeleton {
+  background-color: #e5e7eb;
+}
+.p-skeleton::after {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+}
