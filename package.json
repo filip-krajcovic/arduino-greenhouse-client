@@ -1,6 +1,6 @@
 {
   "name": "arduino-greenhouse-client",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "author": "filipkrajcovic",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "keycloak-js": "^20.0.1",
     "mqtt": "^5.0.2",
     "pinia": "^2.1.3",
+    "primevue": "^3.45.0",
     "vue": "^3.3.4",
     "vue-content-loader": "^2.0.1",
     "vue-router": "^4.2.2",
