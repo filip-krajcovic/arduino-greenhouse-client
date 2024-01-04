@@ -11,14 +11,14 @@ export const getMeasurementsCount = async (): Promise<number> => {
   return callApi<number>(`${API.baseUrl}/${API.messagesEndpoint}/count`)
 }
 
-export const getLastTemperature = async (): Promise<ITemperature> => {
-  return await callApi<ITemperature>(`${API.baseUrl}/${API.temperatureEndpoint}/last`)
+export const getLastTemperature = async (): Promise<Array<ITemperature>> => {
+  return await callApi<Array<ITemperature>>(`${API.baseUrl}/${API.temperatureEndpoint}?limit=1`)
 }
 
-export const getLastHumidity = async (): Promise<IHumidity> => {
-  return await callApi<IHumidity>(`${API.baseUrl}/${API.humidityEndpoint}/last`)
+export const getLastHumidity = async (): Promise<Array<IHumidity>> => {
+  return await callApi<Array<IHumidity>>(`${API.baseUrl}/${API.humidityEndpoint}?limit=1`)
 }
 
-export const getLastSoilMoisture = async (): Promise<ISoilMoisture> => {
-  return await callApi<ISoilMoisture>(`${API.baseUrl}/${API.soilMoistureEndpoint}/last`)
+export const getLastSoilMoisture = async (): Promise<Array<ISoilMoisture>> => {
+  return await callApi<Array<ISoilMoisture>>(`${API.baseUrl}/${API.soilMoistureEndpoint}?limit=1`)
 }
