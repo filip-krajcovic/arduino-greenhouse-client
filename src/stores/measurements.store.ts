@@ -24,15 +24,18 @@ export const useMeasurementsStore = defineStore('measurements', () => {
   })
 
   const fetchLastTemperature = async () => {
-    temperature.value = await getLastTemperature()
+    const temperatures = await getLastTemperature()
+    temperature.value = temperatures && temperatures.length === 1 ? temperatures[0] : undefined
   }
 
   const fetchLastHumidity = async () => {
-    humidity.value = await getLastHumidity()
+    const humidities = await getLastHumidity()
+    humidity.value = humidities && humidities.length === 1 ? humidities[0] : undefined
   }
 
   const fetchLastSoilMoisture = async () => {
-    soilMoisture.value = await getLastSoilMoisture()
+    const soilMoistures = await getLastSoilMoisture()
+    soilMoisture.value = soilMoistures && soilMoistures.length === 1 ? soilMoistures[0] : undefined
   }
 
   return {
