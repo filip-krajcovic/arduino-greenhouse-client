@@ -12,7 +12,7 @@ const enum pumpState {
 }
 export const usePumpStore = defineStore('pump', () => {
     const on: Ref<boolean | undefined> = ref()
-    const off = computed(() => opened.value === undefined ? undefined : !opened.value)
+    const off = computed(() => on.value === undefined ? undefined : !off.value)
     const pumpStateDesc = computed(() => {
       if (on.value === true) {
         return pumpState.on
