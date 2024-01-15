@@ -16,10 +16,6 @@ const minuteOn = ref();
 const hourOff = ref();
 const minuteOff = ref();
 
-const time = () => {
-	24-hourOff
-}
-
 watch(timeOn, (value: string) => {
 	console.log(value);
 	const tokens = value.split(':');
