@@ -1,4 +1,5 @@
-import { ref, computed, type Ref } from 'vue'
+
+import { ref,reactive, computed, type Ref } from 'vue'
 import { defineStore } from 'pinia'
 
 
@@ -11,5 +12,5 @@ interface Notification {
     message: string;
   }
   
-  const messages: Ref<Array<Notification>> = reactive([]);
+  const messages = reactive([]);
   
