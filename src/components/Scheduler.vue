@@ -3,6 +3,7 @@ import { ref, watch, inject } from 'vue';
 import { useTimerStore } from '@/stores/timer.store';
 import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
+import Button from 'primevue/button';
 
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
@@ -14,6 +15,10 @@ const hourOn = ref();
 const minuteOn = ref();
 const hourOff = ref();
 const minuteOff = ref();
+
+const time = () => {
+	24-hourOff
+}
 
 watch(timeOn, (value: string) => {
 	console.log(value);
@@ -54,45 +59,35 @@ const saveData = () => {
 	mqtt?.publish('arduino/timer', JSON.stringify(read()))
 }
 
-
-
-
 </script>
 
 <template>
-	<div class="mt-10 flex flex-col ">
-		<button class="rounded bg-green-600 text-white py-0.5 px-0.5 w-16 self-end" @click="saveData">Uložiť</button>
-		<div class="pt-10">
-			<label class="text-xl">Čas zapnutia svetiel : </label> 
-			<input type="text" class="w-16 text-lg" v-model.lazy="timeOn" />
+	<div class="flex justify-between">
+		<h1 class="pt-10 text-2xl">Harmonogram</h1>
+	</div>
+	<div class="grid grid-cols-2 gap-3 py-8">
+		<div class="flex flex-col">
+			<label class="text-xl">Čas zapnutia </label> 
+			<input type="text" class="w-12 text-lg dark:bg-black mt-2" v-model.lazy="timeOn" />
 			<div v-if="hourOn && minuteOn">
 			</div>
 		</div>
-		<div class="pt-2 pb-6">
-			<label class="text-xl">Čas vypnutia svetiel : </label> 
-			<input type="text" class="w-16 text-lg" v-model.lazy="timeOff"/>
+		<div class="flex flex-col">
+			<label class="text-xl">Čas vypnutia </label> 
+			<input type="text" class="w-12 text-lg dark:bg-black mt-2 " v-model.lazy="timeOff" />
 			<div v-if="hourOff && minuteOff">
-			</div> 
+			</div>
 		</div>
 	</div>
-
-
-
-<!--
-  <div class="pt-4">
-		<h1 class="text-2xl text-black/70 dark:text-white font-bold">Harmonogram</h1>
-	</div>
-	<div class="grid grid-cols-2 pt-4 ">
-		<div class="flex flex-col">
-			<h3 class="text-xl text-black/70 dark:text-white pb-2">Zapnúť</h3>
-			<input class="text-black/70 dark:text-white text-2xl rounded-2xl bg-neutral-300 dark:bg-neutral-800 px-4 py-1 " type="time" value="00:00">
+	<div class="pt-4 flex">
+		<div v-if="hourOn && minuteOn">
+			Svetlá budú zapnuté od <span class=" text-cyan-800 font-semibold mr-1"> {{ hourOn }}:{{ minuteOn }}</span>
 		</div>
-
-		<div class="flex flex-col">
-			<h3 class="text-xl text-black/70 dark:text-white pb-2">Vypnúť</h3>
-			<input class="text-black/70 dark:text-white text-2xl bg-neutral-300 dark:bg-neutral-800 rounded-2xl px-4 py-1" type="time" value="00:00" min="0" max="23" >
+		<div v-if="hourOff && minuteOff">
+			a zhasnú o <span class="text-cyan-800 font-semibold">{{ hourOff }}:{{ minuteOff }}</span>
 		</div>
 	</div>
--->
+	<div class="flex items-center mt-4">
+      <button @click="saveData" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Uložiť</button>
+    </div>
 </template>
-	

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { lightsActions, useLightsStore } from '@/stores/lights.store';
-import { inject } from 'vue';
+import { inject, watch } from 'vue';
 import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
-
-
+import InputSwitch from 'primevue/inputswitch';
+import IconLights from '@/icons/IconLights.vue';
 
 const store = useLightsStore()
 
@@ -14,6 +14,16 @@ const { on: state, lightsStateDesc } = storeToRefs(store)
 const { lightsOn, lightsOff  } = store
 
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
+
+watch(state, (value) => {
+  console.log(value)
+  if(value){
+    turnLightsOn()
+  }
+  else{
+    turnLightsOff()
+  }
+})
 
 const turnLightsOn = () => {
 	
@@ -29,6 +39,24 @@ const turnLightsOff = () => {
 
 </script>
 
+
+<template>
+  <div>
+    <h1 class="text-2xl text-black/70 dark:text-white font-bold pt-8">Svetlá</h1>
+    <div class="card flex items-end justify-between">
+        <div class="flex items-end">
+          <IconLights class="mr-2" />
+          <h3 v-if="state !== undefined" class="text-black/70 dark:text-neutral-200 font-extralight pt-3"> Svetlá sú
+            <span class="font-bold pt-1" :class="{'text-green-600': state, 'text-red-600': !state }">{{ lightsStateDesc }}</span>
+          </h3>
+        </div>
+        <InputSwitch v-model="state"/>
+    </div>
+  </div>
+</template>
+
+
+<!--
 <template>
   <div class="flex flex-col">
     <h1 class="text-2xl text-black/70 dark:text-white font-bold pb-2">Svetlá</h1>
@@ -40,4 +68,4 @@ const turnLightsOff = () => {
       <span class="font-bold pt-1" :class="{'text-green-600': state, 'text-red-600': !state }">{{ lightsStateDesc }}</span>
     </h3>
   </div>
-</template>
+</template>-->

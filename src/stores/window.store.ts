@@ -20,6 +20,7 @@ export const useWindowStore = defineStore('window', () => {
       
     } else if (opened.value === false) {
       return windowState.closed
+
     } else {
       return undefined
     }
