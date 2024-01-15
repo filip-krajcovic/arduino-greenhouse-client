@@ -2,9 +2,11 @@
 import { useMeasurementsStore } from '@/stores/measurements.store'
 import { storeToRefs } from 'pinia'
 import IconTemperature from '@/icons/IconTemperature.vue'
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useTimeAgo } from '@vueuse/core'
 import Skeleton from 'primevue/skeleton'
+import Knob from 'primevue/knob';
+
 
 const measurementsStore = useMeasurementsStore()
 
@@ -18,9 +20,24 @@ const timestamp = computed(() => {
   return r
 })
 
+const temp = computed(() => {
+  const d = temperature.value?.temperature
+  const r = d ? useTimeAgo(d) : undefined
+  return r
+})
+
+
 if (!temperature.value) {
   fetchLastTemperature()
 }
+//const temp = ref(0)
+
+// const temp = ref(0) //computed(() => temperature?.temperature ? temperature?.temperature : 0)
+
+// watch(temperature?.temperature, (value) => {
+//   console.log('temp', value)
+//   temp.value = value
+// })
 
 </script>
 
@@ -35,6 +52,7 @@ if (!temperature.value) {
         </div>  
       </div>
       <div class="flex justify-center py-3">
+        <!--<Knob v-model="value" readonly/>-->
         <h1 v-if="temperature?.temperature" class="text-4xl text-black dark:text-white">{{ temperature?.temperature }}°C</h1>
         <Skeleton v-else height="2.5rem" width="5rem"/>
       </div>

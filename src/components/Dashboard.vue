@@ -2,7 +2,7 @@
 import Temperature from './Temperature.vue'
 import Humidity from './Humidity.vue'
 import SoilMoisture from './SoilMoisture.vue'
-import Scheduler from './Scheduler.vue'
+import Pump from './Pump.vue'
 import Lights from './Lights.vue'
 import Window from './Window.vue'
 
@@ -13,8 +13,9 @@ import Window from './Window.vue'
 		<Temperature />
 		<Humidity />
 		<SoilMoisture />
+		<Pump />
 	</div>
-	<div class="grid grid-cols-2 py-4">
+	<div>
 		<Window />
 		<Lights />
 	</div>

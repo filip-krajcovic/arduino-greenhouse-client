@@ -6,6 +6,7 @@ import { useMeasurementsStore } from '@/stores/measurements.store'
 import { useWindowStore } from '@/stores/window.store'
 import { useLightsStore } from '@/stores/lights.store';
 import { useStatusStore } from '@/stores/status.store';
+import { usePumpStore } from '@/stores/pump.store';
 import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from './mqtt.keys'
 
@@ -23,7 +24,7 @@ export const mqtt: Plugin = {
  
     watch(connected, () => {
       console.log('MQTT client connected');
-      subscribe([Topics.temperature, Topics.humidity, Topics.soilMoisture, Topics.window, Topics.lights, Topics.status,])
+      subscribe([Topics.temperature, Topics.humidity, Topics.soilMoisture, Topics.window, Topics.lights, Topics.status, Topics.pump])
     })
 
     watch(messages, (value: Array<IMessage>) => {
@@ -48,9 +49,12 @@ export const mqtt: Plugin = {
 
     const statusStore = useStatusStore()
 
+    const pumpStore = usePumpStore ()
+
     const { lightsOn, lightsOff } = lightsStore
     const { windowOpen, windowClose } = windowStore
     const { statusOn, statusOff } = statusStore
+    const { pumpOn, pumpOff} = pumpStore
 
     const onMessageReceived = (topic: string, value: number) => {
       switch(topic) { 
@@ -87,6 +91,14 @@ export const mqtt: Plugin = {
             statusOn()
           } else if (value == 0){
             statusOff()
+          }
+          break
+        }
+        case Topics.pump: {
+          if (value == 1){
+            pumpOn()
+          } else if (value == 0){
+            pumpOff()
           }
           break
         }

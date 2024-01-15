@@ -6,4 +6,5 @@ export enum Topics {
   lights = 'arduino/lights',
   status = 'arduino/status',
   timer = 'arduino/timer',
+  pump = 'arduino/pump',
 }
