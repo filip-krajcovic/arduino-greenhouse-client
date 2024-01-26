@@ -1,5 +1,5 @@
 const app = import.meta.env.VITE_APP_NAME || 'my-app';
-const language = import.meta.env.VITE_LANGUAGE || navigator.language;
+const language = navigator.language ?? import.meta.env.VITE_LANGUAGE;
 
 const langKey = `${app}.language`;
 
@@ -13,7 +13,7 @@ export const setLocale = (value: string) => {
 
 const savedLanguage = getLocale();
 
-const locale = savedLanguage || language;
+const locale = savedLanguage ?? language;
 
 setLocale(locale);
 

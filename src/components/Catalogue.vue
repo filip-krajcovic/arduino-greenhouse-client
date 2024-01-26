@@ -10,7 +10,7 @@ import { items } from '@/services/catalogue.service';
 
 <template>
     <div class="pt-8 pb-8">
-        <span class="font-bold text-2xl pl-2">Katalóg</span>
+        <span class="font-bold text-2xl pl-2">{{ $t('catalogue') }}</span>
     </div>
     <div class="grid grid-cols-2 grid-rows-3 gap-3 px-2">
       <RouterLink v-for="item in items" :to="{ name: 'cataloguedetail', params: { id: item.id } }" class="grid items-center px-5 py-5 flex-col shadow-[0px_0px_15px_1px_rgba(0,0,0,0.15)] rounded-lg dark:bg-neutral-800">

@@ -86,17 +86,17 @@ const onLazyLoad = (event: any) => {
 </script>
 
 <template>
-	<h1 class="pl-4 py-4 text-xl font-bold">Zoznam meraní:</h1>
+	<h1 class="pl-4 py-4 text-xl font-bold">{{ $t('measurementsList') }}</h1>
 	<VirtualScroller :items="lazyItems" :itemSize="72" :loading="lazyLoading" showLoader :delay="0" lazy
 		@lazy-load="onLazyLoad" class="border-1 surface-border border-round" style="height: 100vh">
 		<template v-slot:item="{ item, options }">
 			<div style="height: 72px"
 				class="p-4 shadow-[0px_0px_15px_-3px_rgba(0,0,0,0.15)] rounded-2xl dark:bg-neutral-800 text-sm">
-				<div class="flex items-center" v-if="item">{{ `Dátum a čas: ${new Date(item.timestamp).toLocaleString('sk-SK')}`
+				<div class="flex items-center" v-if="item">{{ `${$t('dateAndTime')}: ${new Date(item.timestamp).toLocaleString('sk-SK')}`
 				}}</div>
-				<div class="flex items-center" v-if="item && item.temperature">{{ `Teplota: ${item.temperature}` }}°C</div>
-				<div class="flex items-center" v-if="item && item.humidity">{{ `Vlhkosť: ${item.humidity}` }}%</div>
-				<div class="flex items-center" v-if="item && item.soilMoisture">{{ `Vlhkosť pôdy: ${item.soilMoisture}` }}%</div>
+				<div class="flex items-center" v-if="item && item.temperature">{{ `${$t('temperature')}: ${item.temperature}` }}°C</div>
+				<div class="flex items-center" v-if="item && item.humidity">{{ `${$t('humidity')}: ${item.humidity}` }}%</div>
+				<div class="flex items-center" v-if="item && item.soilMoisture">{{ `${$t('soilMoisture')}: ${item.soilMoisture}` }}%</div>
 			</div>
 		</template>
 		<template v-slot:loader="{ options }">

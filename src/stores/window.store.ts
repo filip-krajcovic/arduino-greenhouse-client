@@ -7,8 +7,8 @@ export const enum windowActions {
 }
 
 const enum windowState {
-	opened = 'otvorené',
-	closed = 'zatvorené',
+	opened = 'opened',
+	closed = 'closed',
 }
 
 export const useWindowStore = defineStore('window', () => {

@@ -6,7 +6,6 @@ import IconProfile from '@/icons/IconProfile.vue';
 import IconRight from '@/icons/IconRight.vue';
 import IconScheduler from '@/icons/IconScheduler.vue';
 import IconSettings from '@/icons/IconSettings.vue';
-import { computed } from 'vue';
 import UserTitle from './UserTitle.vue';
 import { storeToRefs } from 'pinia';
 import { useUserStore } from '@/stores/users.store';
@@ -24,6 +23,39 @@ const { closed } = storeToRefs(menuStore)
 
 const { close } = menuStore
 
+const links = [
+  {
+    path: 'history',
+    icon: IconHistory2,
+    iconClass: 'w-4 h-4 mb-px ml-1',
+    paddingLeft: '3',
+  },
+  {
+    path: 'notifications',
+    icon: IconNotification,
+    iconClass: 'w-4 h-4 mb-px ml-1',
+    paddingLeft: '3',
+  },
+  {
+    path: 'scheduler',
+    icon: IconScheduler,
+    iconClass: 'w-6 h-6 mb-px ml-px',
+    paddingLeft: '2',
+  },
+  {
+    path: 'catalogue',
+    icon: IconBook,
+    iconClass: 'w-4 h-4 ml-1',
+    paddingLeft: '3',
+  },
+  {
+    path: 'settings',
+    icon: IconSettings,
+    iconClass: 'w-4 h-4',
+    paddingLeft: '3',
+  },
+]
+
 </script>
 
 <template>
@@ -34,54 +66,25 @@ const { close } = menuStore
     <RouterLink v-if="isAuthenticated" class="flex items-center justify-between mx-8 mb-4" to="profile" @click="close">
       <div class="flex items-center">
         <IconProfile class="w-5 h-5 mb-0.5"/>
-        <p class="pl-3 text-black/80 dark:text-white font-light">Môj účet</p>
+        <p class="pl-3 text-black/80 dark:text-white font-light">{{ $t('myAccount') }}</p>
       </div>
       <IconRight/>
     </RouterLink>
     <div v-else class="flex items-center mx-8 mb-4">
-      <button @click="login" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">Prihlásiť</button>
+      <button @click="login" class="px-4 py-2 bg-cyan-800 text-white rounded-lg w-full sm:w-auto">{{ $t('login') }}</button>
     </div>
     <div class="h-px bg-neutral-300 dark:bg-neutral-600"></div>
-    <!--<RouterLink class="flex items-center justify-between mx-8 mt-8" to="settings" @click="close">
+    <div class="px-8 pt-0">
+    <RouterLink v-for="link of links" class="flex justify-between items-center mt-8" :to="link.path" @click="close">
       <div class="flex items-center">
-        <IconSettings class="w-4 h-4"/>
-        <p class="pl-3 text-base text-black/80 dark:text-white font-light">Nastavenia</p>
-      </div>
-      <IconRight/>
-    </RouterLink>-->
-    <div class="px-8 pt-8">
-    <RouterLink class="flex justify-between items-center" to="history" @click="close">
-      <div class="flex items-center">
-        <IconHistory2 class="w-4 h-4 ml-1"/>
-        <p class="pl-3 text-base text-black/80 dark:text-white font-light">História</p>
+        <component :is="link.icon" :class="link.iconClass"></component>
+        <p class="text-base text-black/80 dark:text-white font-light" :class="`pl-${link.paddingLeft}`">{{ $t(link.path) }}</p>
       </div>
       <div class="flex">
       <IconRight/>
       </div>
     </RouterLink>
-    <RouterLink class="flex items-center justify-between mt-8" to="notifications" @click="close">
-      <div class="flex items-center">
-        <IconNotification class="w-4 h-4 mb-px ml-1"/>
-        <p class="pl-3 text-base text-black/80 dark:text-white font-light">Notifikácie</p>
-      </div>
-      <IconRight/>
-    </RouterLink>
-    <RouterLink class="flex items-center justify-between mt-8" to="scheduler" @click="close">
-      <div class="flex items-center">
-        <IconScheduler class="w-6 h-6 mb-px ml-px"/>
-        <p class="pl-2 text-base text-black/80 dark:text-white font-light">Harmonogram</p>
-      </div>
-      <IconRight/>
-    </RouterLink>
-    <RouterLink class="flex items-center justify-between mt-8" to="catalogue" @click="close">
-      <div class="flex items-center">
-        <IconBook class="w-4 h-4 ml-1"/>
-        <span class="pl-3 text-base text-black/80 dark:text-white font-light">Katalóg</span>
-      </div>
-      <IconRight/>
-    </RouterLink>
     </div>
-    
   </aside>
 </template>
 

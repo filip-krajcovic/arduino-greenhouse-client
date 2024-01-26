@@ -1,11 +1,10 @@
 <script setup lang="ts">
-
+import LanguagePicker from './LanguagePicker.vue'
 </script>
 
 <template>
-    <div class="flex items-center justify-between mb-8 pt-20">
-        <h1 class="text-black/80 font-light text-lg">Heslo</h1>
-        <IconRight/>
-    </div>
-    <div class="h-px bg-neutral-300"></div>
+	<div class="pt-8 pb-8">
+		<span class="font-bold text-2xl pl-2">{{ $t('settings') }}</span>
+	</div>
+	<LanguagePicker />
 </template>

@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { lightsActions, useLightsStore } from '@/stores/lights.store';
-import { inject, watch } from 'vue';
+import { lightsActions, useLightsStore } from '@/stores/lights.store'
+import { inject, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
-import InputSwitch from 'primevue/inputswitch';
-import IconLights from '@/icons/IconLights.vue';
+import InputSwitch from 'primevue/inputswitch'
+import IconLights from '@/icons/IconLights.vue'
+
+const { t }  = useI18n()
 
 const store = useLightsStore()
 
-const { on: state, lightsStateDesc } = storeToRefs(store)
+const { on: state } = storeToRefs(store)
 
 const { lightsOn, lightsOff  } = store
 
@@ -37,35 +40,24 @@ const turnLightsOff = () => {
   lightsOff()
 }
 
+const lightsStateDesc = (state: boolean) => {
+  return state ? t('turnedOn') : t('turnedOff')
+}
+
 </script>
 
 
 <template>
   <div>
-    <h1 class="text-2xl text-black/70 dark:text-white font-bold pt-8">Svetlá</h1>
-    <div class="card flex items-end justify-between">
+    <h1 class="text-2xl text-black/70 dark:text-white font-bold">{{ $t('lights') }}</h1>
+    <div class="card flex items-center justify-between">
         <div class="flex items-end">
           <IconLights class="mr-2" />
-          <h3 v-if="state !== undefined" class="text-black/70 dark:text-neutral-200 font-extralight pt-3"> Svetlá sú
-            <span class="font-bold pt-1" :class="{'text-green-600': state, 'text-red-600': !state }">{{ lightsStateDesc }}</span>
+          <h3 v-if="state !== undefined" class="text-black/70 dark:text-neutral-200 font-extralight"> {{ `${$t('lights')} ${$t('are')}` }}
+            <span class="font-bold pt-1" :class="{'text-green-600': state, 'text-red-600': !state }">{{ $t(lightsStateDesc(state)) }}</span>
           </h3>
         </div>
         <InputSwitch v-model="state"/>
     </div>
   </div>
 </template>
-
-
-<!--
-<template>
-  <div class="flex flex-col">
-    <h1 class="text-2xl text-black/70 dark:text-white font-bold pb-2">Svetlá</h1>
-    <div class="inline-flex drop-shadow-[0_2px_4px_rgba(0,0,0,0.18)] pt-2">
-      <button @click="turnLightsOff()" class="bg-neutral-300 dark:bg-neutral-800 rounded-l-lg py-3 px-3 dark:hover:bg-red-500  hover:text-white  hover:bg-red-500">Vypnúť</button>
-      <button @click="turnLightsOn()" type="button" class="bg-neutral-300 dark:bg-neutral-800 rounded-r-lg py-3 px-3 hover:bg-green-600 dark:hover:bg-green-600 hover:text-white">Zapnúť</button>
-    </div>
-    <h3 v-if="state !== undefined" class="text-black/70 dark:text-neutral-200 font-extralight pt-3"> Svetlá sú
-      <span class="font-bold pt-1" :class="{'text-green-600': state, 'text-red-600': !state }">{{ lightsStateDesc }}</span>
-    </h3>
-  </div>
-</template>-->
