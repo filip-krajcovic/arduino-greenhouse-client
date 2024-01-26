@@ -1,4 +1,4 @@
-import type { IClientOptions } from "mqtt"
+import type { IClientOptions } from 'mqtt'
 
 export const brokerUrl = import.meta.env.VITE_MQTT_BROKER_URL
 

@@ -1,4 +1,4 @@
-import type { Ref } from "vue"
+import type { Ref } from 'vue'
 
 export type IMessage = {
   topic: string
@@ -6,11 +6,11 @@ export type IMessage = {
 }
 
 export type IMqttClient = {
-  connected: Ref<boolean>,
+  connected: Ref<boolean>
   error: Ref<string | undefined>
   messages: Ref<Array<IMessage>>
-  connect: Function,
-  subscribe: Function,
-  unsubscribe: Function,
-  publish: Function,
+  connect: Function
+  subscribe: Function
+  unsubscribe: Function
+  publish: Function
 }

@@ -6,32 +6,31 @@ import { storeToRefs } from 'pinia'
 import type { IMqttClient } from './mqtt.types'
 
 export const useMqttClient = (): IMqttClient => {
-
   const mqttStore = useMqttStore()
 
   const { connected, messages, error, topics } = storeToRefs(mqttStore)
 
-  let client: MqttClient;
+  let client: MqttClient
 
   const _connect = () => {
-
     if (client) {
-      return;
+      return
     }
 
     client = connect(brokerUrl, clientOptions)
 
-    client.on(Events.connect, () => connected.value = true)
+    client.on(Events.connect, () => (connected.value = true))
 
-    client.on(Events.error, e => error.value = e.message)
+    client.on(Events.error, (e) => (error.value = e.message))
 
     client.on(Events.message, messageReceivedCallback)
   }
 
-  const messageReceivedCallback = (topic: string, message: Buffer) => messages.value.push({topic, data: JSON.parse(message.toString())})
+  const messageReceivedCallback = (topic: string, message: Buffer) =>
+    messages.value.push({ topic, data: JSON.parse(message.toString()) })
 
   const subscribe = (topic: string | string[]) => {
-    topics.value = topics.value.concat(topic);
+    topics.value = topics.value.concat(topic)
     client.subscribe(topic)
   }
 
@@ -50,7 +49,7 @@ export const useMqttClient = (): IMqttClient => {
   }
 
   const publish = (topic: string, message: string | Buffer) => {
-    client.publishAsync(topic, message);
+    client.publishAsync(topic, message)
   }
 
   return {

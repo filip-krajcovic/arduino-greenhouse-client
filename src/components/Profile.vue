@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import UserProfileData from './UserProfileData.vue';
-
+import UserProfileData from './UserProfileData.vue'
 </script>
 
 <template>

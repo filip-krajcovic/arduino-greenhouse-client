@@ -6,4 +6,4 @@ export const API = {
   soilMoistureEndpoint: 'api/v1/soilmoisture',
 }
 
-export const baseUrl = window.location.origin;
+export const baseUrl = window.location.origin

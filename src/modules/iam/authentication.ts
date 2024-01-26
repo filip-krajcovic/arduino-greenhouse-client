@@ -27,7 +27,7 @@ export const reloadUserInfo = async () => {
 
 export const observeAuth = () => {
   const { isAuthenticated } = useKeycloak()
-  
+
   watch(isAuthenticated, () => {
     if (isAuthenticated.value) {
       reloadUserInfo()
@@ -41,7 +41,7 @@ export const login = () => {
   if (keycloak) {
     keycloak.login({
       locale,
-    });
+    })
   }
 }
 

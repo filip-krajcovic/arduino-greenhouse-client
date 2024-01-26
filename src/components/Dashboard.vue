@@ -5,18 +5,17 @@ import SoilMoisture from './SoilMoisture.vue'
 import Pump from './Pump.vue'
 import Lights from './Lights.vue'
 import Window from './Window.vue'
-
 </script>
 
 <template>
-	<div class="grid grid-cols-2 grid-rows-2 gap-3 py-8">
-		<Temperature />
-		<Humidity />
-		<SoilMoisture />
-		<Pump />
-	</div>
-	<div class="grid grid-cols-1 grid-rows-2 gap-6">
-		<Window />
-		<Lights />
-	</div>
+  <div class="grid grid-cols-2 grid-rows-2 gap-3 py-8">
+    <Temperature />
+    <Humidity />
+    <SoilMoisture />
+    <Pump />
+  </div>
+  <div class="grid grid-cols-1 grid-rows-2 gap-6">
+    <Window />
+    <Lights />
+  </div>
 </template>

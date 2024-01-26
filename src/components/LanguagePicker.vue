@@ -12,22 +12,21 @@ const languages = ref([
   { code: 'sk-SK', icon: IconFlagSk },
 ])
 
-const { locale }  = useI18n()
+const { locale } = useI18n()
 
 watch(locale, (value) => {
   setLocale(value)
 })
 
-const langCodes = languages.value.map(lang => lang.code)
+const langCodes = languages.value.map((lang) => lang.code)
 
-const language = (code: string) => languages.value.find(v => v.code == code)
+const language = (code: string) => languages.value.find((v) => v.code == code)
 
 const langIcon = (code: string) => language(code)?.icon
-
 </script>
 
 <template>
-  <label class="block mb-1">{{$t('language') }}</label>
+  <label class="block mb-1">{{ $t('language') }}</label>
   <Dropdown v-model="locale" :options="langCodes" optionLabel="name" class="w-full">
     <template #value="slotProps">
       <div v-if="slotProps.value" class="flex items-center">
@@ -46,4 +45,3 @@ const langIcon = (code: string) => language(code)?.icon
     </template>
   </Dropdown>
 </template>
-

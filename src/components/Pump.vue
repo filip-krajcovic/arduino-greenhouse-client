@@ -28,22 +28,24 @@ watch(state, (value) => {
   console.log(value)
   if (value) {
     turnPumpOn()
-  }
-  else {
+  } else {
     turnPumpOff()
   }
 })
 
-const toggleState = () => state.value = !state.value
-
+const toggleState = () => (state.value = !state.value)
 </script>
 
 <template>
-  <div class="flex py-2 flex-col border rounded-xl border-neutral-300 dark:bg-neutral-800 dark:border-neutral-800">
+  <div
+    class="flex py-2 flex-col border rounded-xl border-neutral-300 dark:bg-neutral-800 dark:border-neutral-800"
+  >
     <div class="flex items-center pl-2">
       <IconPump class="mr-2 w-8 h-8" />
       <div class="flex flex-col">
-        <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">{{ $t('watering') }}</p>
+        <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">
+          {{ $t('watering') }}
+        </p>
         <span class="h-5 text-xs text-neutral-400">2 days ago</span>
       </div>
     </div>

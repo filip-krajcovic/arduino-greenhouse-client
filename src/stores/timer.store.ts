@@ -7,7 +7,7 @@ export const useTimerStore = defineStore('timer', () => {
   const _hourOff: Ref<number | undefined> = ref()
   const _minuteOff: Ref<number | undefined> = ref()
 
-  const save = (hourOn:number, minuteOn:number, hourOff:number, minuteOff:number) => {
+  const save = (hourOn: number, minuteOn: number, hourOff: number, minuteOff: number) => {
     _hourOn.value = hourOn
     _minuteOn.value = minuteOn
     _hourOff.value = hourOff
@@ -16,10 +16,10 @@ export const useTimerStore = defineStore('timer', () => {
 
   const read = () => {
     return {
-        hourOn: _hourOn.value,
-        minuteOn: _minuteOn.value,
-        hourOff: _hourOff.value,
-        minuteOff: _minuteOff.value,
+      hourOn: _hourOn.value,
+      minuteOn: _minuteOn.value,
+      hourOff: _hourOff.value,
+      minuteOff: _minuteOff.value,
     }
   }
 
