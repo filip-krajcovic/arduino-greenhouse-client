@@ -28,10 +28,7 @@ export const mqtt: Plugin = {
         Topics.temperature,
         Topics.humidity,
         Topics.soilMoisture,
-        Topics.window,
-        Topics.lights,
         Topics.status,
-        Topics.pump,
       ])
     })
 
