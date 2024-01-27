@@ -53,7 +53,7 @@ const lightsStateDesc = (state: boolean) => {
           <span
             class="font-bold pt-1"
             :class="{ 'text-green-600': state, 'text-red-600': !state }"
-            >{{ $t(lightsStateDesc(state)) }}</span
+            >{{ lightsStateDesc(state) }}</span
           >
         </h3>
       </div>

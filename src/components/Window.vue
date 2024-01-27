@@ -28,7 +28,6 @@ const closeWindow = () => {
   windowClose()
 }
 watch(state, (value) => {
-  console.log(value)
   if (value) {
     openWindow()
   } else {

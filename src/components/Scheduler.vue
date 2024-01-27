@@ -5,6 +5,8 @@ import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
 import Button from 'primevue/button'
 import InputMask from 'primevue/inputmask'
+import { useScheduleStore } from '@/stores/schedule.store'
+import type { ISchedule } from '@/services/schedule.interface'
 
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
@@ -35,25 +37,44 @@ watch(timeOff, (value: string) => {
 
 const { save, read } = useTimerStore()
 
-const storeData = read()
-
-if (storeData) {
-  hourOn.value = storeData.hourOn
-  minuteOn.value = storeData.minuteOn
-  hourOff.value = storeData.hourOff
-  minuteOff.value = storeData.minuteOff
-  if (hourOn.value && minuteOn.value) {
-    timeOn.value = hourOn.value + ':' + minuteOn.value
-  }
-  if (hourOff.value && minuteOff.value) {
-    timeOff.value = hourOff.value + ':' + minuteOff.value
+const mapFromStore = (source: ISchedule) => {
+  if (source) {
+    hourOn.value = source.hourOn
+    minuteOn.value = source.minuteOn
+    hourOff.value = source.hourOff
+    minuteOff.value = source.minuteOff
+    if (hourOn.value && minuteOn.value) {
+      timeOn.value = hourOn.value + ':' + minuteOn.value
+    }
+    if (hourOff.value && minuteOff.value) {
+      timeOff.value = hourOff.value + ':' + minuteOff.value
+    }
   }
 }
+
+const storeData = read()
+
+mapFromStore(storeData)
 
 const saveData = () => {
   save(hourOn.value, minuteOn.value, hourOff.value, minuteOff.value)
   mqtt?.publish('arduino/timer', JSON.stringify(read()))
 }
+
+const scheduleStore = useScheduleStore()
+
+
+const { fetchSchedule } = scheduleStore
+
+if (!(timeOn.value && timeOff.value)) {
+  fetchSchedule().then(lastValue => {
+    if (lastValue) {
+      mapFromStore(lastValue)
+    }
+  })
+}
+
+
 </script>
 
 <template>
@@ -82,7 +103,7 @@ const saveData = () => {
       />
     </div>
   </div>
-  <div class="pt-4 flex">
+  <div class="pt-4 flex flex-col sm:flex-row">
     <div v-if="hourOn && minuteOn">
       {{ $t('lightsTurnOnFrom') }}
       <span class="text-cyan-800 font-semibold mr-1"> {{ hourOn }}:{{ minuteOn }}</span>

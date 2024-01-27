@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import ThemeButton from './ThemeButton.vue'
 import MenuButton from './MenuButton.vue'
-import { useStatusStore } from '@/stores/status.store'
+import { useDeviceStore } from '@/stores/device.store'
 import { storeToRefs } from 'pinia'
 
-const store = useStatusStore()
+const store = useDeviceStore()
 
 const { on: state } = storeToRefs(store)
 </script>

@@ -5,7 +5,7 @@ import type { IMessage } from './mqtt.types'
 import { useMeasurementsStore } from '@/stores/measurements.store'
 import { useWindowStore } from '@/stores/window.store'
 import { useLightsStore } from '@/stores/lights.store'
-import { useStatusStore } from '@/stores/status.store'
+import { useDeviceStore } from '@/stores/device.store'
 import { usePumpStore } from '@/stores/pump.store'
 import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from './mqtt.keys'
@@ -56,13 +56,13 @@ export const mqtt: Plugin = {
 
     const lightsStore = useLightsStore()
 
-    const statusStore = useStatusStore()
+    const deviceStore = useDeviceStore()
 
     const pumpStore = usePumpStore()
 
     const { lightsOn, lightsOff } = lightsStore
     const { windowOpen, windowClose } = windowStore
-    const { statusOn, statusOff } = statusStore
+    const { statusOn, statusOff } = deviceStore
     const { pumpOn, pumpOff } = pumpStore
 
     const onMessageReceived = (topic: string, value: number) => {

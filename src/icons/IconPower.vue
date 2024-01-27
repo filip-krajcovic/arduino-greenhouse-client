@@ -11,7 +11,7 @@
 
 <style scoped>
 button.active svg path:first-child {
-  fill: #10b981;
+  fill: rgb(21 94 117);
 }
 
 button:not(.active):hover svg path:first-child {

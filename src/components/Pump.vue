@@ -6,12 +6,13 @@ import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
 import IconPower from '@/icons/IconPower.vue'
+import TimeAgo from './TimeAgo.vue'
 
 const store = usePumpStore()
 
-const { on: state, pumpStateDesc } = storeToRefs(store)
+const { on: state, lastState } = storeToRefs(store)
 
-const { pumpOn, pumpOff } = store
+const { pumpOn, pumpOff, fetchLastPumpActivity } = store
 
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
@@ -25,7 +26,6 @@ const turnPumpOff = () => {
   pumpOff()
 }
 watch(state, (value) => {
-  console.log(value)
   if (value) {
     turnPumpOn()
   } else {
@@ -34,6 +34,10 @@ watch(state, (value) => {
 })
 
 const toggleState = () => (state.value = !state.value)
+
+if (!lastState.value) {
+  fetchLastPumpActivity()
+}
 </script>
 
 <template>
@@ -46,7 +50,12 @@ const toggleState = () => (state.value = !state.value)
         <p class="font-bold text-sm text-black/70 dark:text-white font-black tracking-tighter">
           {{ $t('watering') }}
         </p>
-        <span class="h-5 text-xs text-neutral-400">2 days ago</span>
+        <TimeAgo
+          v-if="lastState?.timestamp"
+          :datetime="lastState?.timestamp"
+          class="h-5 text-xs text-neutral-400"
+        />
+        <Skeleton v-else height="1.25rem" />
       </div>
     </div>
     <div class="card flex justify-center rounded-full mt-3">
