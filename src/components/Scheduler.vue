@@ -63,18 +63,15 @@ const saveData = () => {
 
 const scheduleStore = useScheduleStore()
 
-
 const { fetchSchedule } = scheduleStore
 
 if (!(timeOn.value && timeOff.value)) {
-  fetchSchedule().then(lastValue => {
+  fetchSchedule().then((lastValue) => {
     if (lastValue) {
       mapFromStore(lastValue)
     }
   })
 }
-
-
 </script>
 
 <template>
