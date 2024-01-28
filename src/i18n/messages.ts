@@ -88,7 +88,7 @@ export default {
     watering: 'Zavlažovanie',
     turnOn: 'Zapnúť',
     turnOff: 'Vypnúť',
-    turnedOn: 'zappnuté',
+    turnedOn: 'zapnuté',
     turnedOff: 'vypnuté',
     opened: 'otvorené',
     closed: 'zatvorené',
