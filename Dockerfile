@@ -6,8 +6,8 @@ RUN npm ci --ignore-scripts --force
 
 COPY Dockerfile ./
 COPY index.html ./
-# COPY postcss.config.js ./
-# COPY tailwind.config.js ./
+COPY postcss.config.js ./
+COPY tailwind.config.js ./
 COPY tsconfig.json ./
 COPY tsconfig.app.json ./
 COPY tsconfig.node.json ./
