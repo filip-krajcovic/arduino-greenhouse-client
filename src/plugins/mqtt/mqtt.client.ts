@@ -49,7 +49,7 @@ export const useMqttClient = (): IMqttClient => {
   }
 
   const publish = (topic: string, message: string | Buffer) => {
-    client.publishAsync(topic, message)
+    client.publishAsync(topic, message, { qos: 0 })
   }
 
   return {
