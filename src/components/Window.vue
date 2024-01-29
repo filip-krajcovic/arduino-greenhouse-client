@@ -7,6 +7,7 @@ import { inject, watch } from 'vue'
 import IconWindow from '@/icons/IconWindow.vue'
 import InputSwitch from 'primevue/inputswitch'
 import { useI18n } from 'vue-i18n'
+import { Topics } from '@/plugins/mqtt/mqtt.topics'
 
 const { t } = useI18n()
 
@@ -19,12 +20,12 @@ const { windowOpen, windowClose } = store
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
 const openWindow = () => {
-  mqtt?.publish('arduino/window', windowActions.open)
+  mqtt?.publish(Topics.window, windowActions.open)
   windowOpen()
 }
 
 const closeWindow = () => {
-  mqtt?.publish('arduino/window', windowActions.close)
+  mqtt?.publish(Topics.window, windowActions.close)
   windowClose()
 }
 watch(state, (value) => {

@@ -7,6 +7,7 @@ import Button from 'primevue/button'
 import InputMask from 'primevue/inputmask'
 import { useScheduleStore } from '@/stores/schedule.store'
 import type { ISchedule } from '@/services/schedule.interface'
+import { Topics } from '@/plugins/mqtt/mqtt.topics'
 
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
@@ -58,7 +59,7 @@ mapFromStore(storeData)
 
 const saveData = () => {
   save(hourOn.value, minuteOn.value, hourOff.value, minuteOff.value)
-  mqtt?.publish('arduino/timer', JSON.stringify(read()))
+  mqtt?.publish(Topics.timer, JSON.stringify(read()))
 }
 
 const scheduleStore = useScheduleStore()

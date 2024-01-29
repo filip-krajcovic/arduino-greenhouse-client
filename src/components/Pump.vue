@@ -7,6 +7,7 @@ import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
 import IconPower from '@/icons/IconPower.vue'
 import TimeAgo from './TimeAgo.vue'
+import { Topics } from '@/plugins/mqtt/mqtt.topics'
 
 const store = usePumpStore()
 
@@ -17,12 +18,12 @@ const { pumpOn, pumpOff, fetchLastPumpActivity } = store
 const mqtt = inject<IMqttClient>(mqttClientInjectionKey)
 
 const turnPumpOn = () => {
-  mqtt?.publish('arduino/pump', pumpActions.on)
+  mqtt?.publish(Topics.pump, pumpActions.on)
   pumpOn()
 }
 
 const turnPumpOff = () => {
-  mqtt?.publish('arduino/pump', pumpActions.off)
+  mqtt?.publish(Topics.pump, pumpActions.off)
   pumpOff()
 }
 watch(state, (value) => {

@@ -7,6 +7,7 @@ import { mqttClientInjectionKey } from '@/plugins/mqtt/mqtt.keys'
 import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
 import InputSwitch from 'primevue/inputswitch'
 import IconLights from '@/icons/IconLights.vue'
+import { Topics } from '@/plugins/mqtt/mqtt.topics'
 
 const { t } = useI18n()
 
@@ -28,12 +29,12 @@ watch(state, (value) => {
 })
 
 const turnLightsOn = () => {
-  mqtt?.publish('arduino/lights', lightsActions.on)
+  mqtt?.publish(Topics.lights, lightsActions.on)
   lightsOn()
 }
 
 const turnLightsOff = () => {
-  mqtt?.publish('arduino/lights', lightsActions.off)
+  mqtt?.publish(Topics.lights, lightsActions.off)
   lightsOff()
 }
 
