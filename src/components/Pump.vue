@@ -8,6 +8,7 @@ import type { IMqttClient } from '@/plugins/mqtt/mqtt.types'
 import IconPower from '@/icons/IconPower.vue'
 import TimeAgo from './TimeAgo.vue'
 import { Topics } from '@/plugins/mqtt/mqtt.topics'
+import Skeleton from 'primevue/skeleton'
 
 const store = usePumpStore()
 
