@@ -1,13 +1,6 @@
 import { watch, type Plugin } from 'vue'
 import { useMqttClient } from './mqtt.client'
 import { Topics } from './mqtt.topics'
-import type { IMessage } from './mqtt.types'
-import { useMeasurementsStore } from '@/stores/measurements.store'
-import { useWindowStore } from '@/stores/window.store'
-import { useLightsStore } from '@/stores/lights.store'
-import { useDeviceStore } from '@/stores/device.store'
-import { usePumpStore } from '@/stores/pump.store'
-import { storeToRefs } from 'pinia'
 import { mqttClientInjectionKey } from './mqtt.keys'
 
 export const mqtt: Plugin = {
@@ -18,7 +11,7 @@ export const mqtt: Plugin = {
 
     app.provide(mqttClientInjectionKey, mqtt)
 
-    const { connect, connected, subscribe, messages } = mqtt
+    const { connect, connected, subscribe } = mqtt
 
     connect()
 
@@ -31,88 +24,5 @@ export const mqtt: Plugin = {
         Topics.status,
       ])
     })
-
-    watch(
-      messages,
-      (value: Array<IMessage>) => {
-        const index = value.length > 0 ? value.length - 1 : 0
-        const lastValue = value[index]
-
-        onMessageReceived(lastValue.topic, lastValue.data)
-      },
-      {
-        deep: true,
-      }
-    )
-
-    const measurementsStore = useMeasurementsStore()
-
-    const { temperature, humidity, soilMoisture } = storeToRefs(measurementsStore)
-
-    const windowStore = useWindowStore()
-
-    const lightsStore = useLightsStore()
-
-    const deviceStore = useDeviceStore()
-
-    const pumpStore = usePumpStore()
-
-    const { lightsOn, lightsOff } = lightsStore
-    const { windowOpen, windowClose } = windowStore
-    const { statusOn, statusOff } = deviceStore
-    const { pumpOn, pumpOff } = pumpStore
-
-    const onMessageReceived = (topic: string, value: number) => {
-      switch (topic) {
-        case Topics.humidity: {
-          humidity.value = { humidity: value, timestamp: new Date() }
-          break
-        }
-        case Topics.temperature: {
-          temperature.value = { temperature: value, timestamp: new Date() }
-          break
-        }
-        case Topics.soilMoisture: {
-          soilMoisture.value = { soilMoisture: value, timestamp: new Date() }
-          break
-        }
-        case Topics.window: {
-          if (value === 1) {
-            windowOpen()
-          } else if (value === 0) {
-            windowClose()
-          }
-          break
-        }
-        case Topics.lights: {
-          if (value === 1) {
-            lightsOn()
-          } else if (value === 0) {
-            lightsOff()
-          }
-          break
-        }
-        case Topics.status: {
-          if (value == 1) {
-            statusOn()
-          } else if (value == 0) {
-            statusOff()
-          }
-          break
-        }
-        case Topics.pump: {
-          if (value == 1) {
-            pumpOn()
-          } else if (value == 0) {
-            pumpOff()
-          }
-          break
-        }
-        default: {
-          console.log('unknown topic')
-          break
-        }
-      }
-    }
   },
 }
