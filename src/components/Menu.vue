@@ -50,7 +50,7 @@ const links = [
   {
     path: 'settings',
     icon: IconSettings,
-    iconClass: 'w-4 h-4',
+    iconClass: 'w-5 h-5',
     paddingLeft: '3',
   },
 ]
