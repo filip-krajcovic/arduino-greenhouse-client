@@ -1,10 +1,14 @@
-import { API } from "@/constants"
-import { callApi } from "./api.service"
-import type { IMeasurement, ITemperature, IHumidity, ISoilMoisture } from "./measurement.interface"
+import { API } from '@/constants'
+import { callApi } from './api.service'
+import type { IMeasurement, ITemperature, IHumidity, ISoilMoisture } from './measurement.interface'
 
-
-export const getMeasurements = async (skip: number, limit: number): Promise<Array<IMeasurement>> => {
-  return callApi<Array<IMeasurement>>(`${API.baseUrl}/${API.messagesEndpoint}?skip=${skip}&limit=${limit}`)
+export const getMeasurements = async (
+  skip: number,
+  limit: number
+): Promise<Array<IMeasurement>> => {
+  return callApi<Array<IMeasurement>>(
+    `${API.baseUrl}/${API.messagesEndpoint}?skip=${skip}&limit=${limit}`
+  )
 }
 
 export const getMeasurementsCount = async (): Promise<number> => {

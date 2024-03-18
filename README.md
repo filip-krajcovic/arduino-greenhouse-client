@@ -45,3 +45,7 @@ npm run build
 npm run lint
 ```
 
+```sh
+npm run format
+```
+

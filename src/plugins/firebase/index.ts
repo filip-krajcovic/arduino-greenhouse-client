@@ -6,5 +6,4 @@ console.log('firebase options', firebaseOptions)
 
 export const firebaseApp = initializeApp(firebaseOptions)
 
-
 export const firestore = getFirestore(firebaseApp)

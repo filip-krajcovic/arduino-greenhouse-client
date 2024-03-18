@@ -1,3 +1,3 @@
 <template>
-    <p>© 2023</p>
+  <p>© 2024</p>
 </template>

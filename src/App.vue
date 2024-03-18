@@ -5,4 +5,3 @@ import Shell from './components/Shell.vue'
 <template>
   <Shell />
 </template>
-

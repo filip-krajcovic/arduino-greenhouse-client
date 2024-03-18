@@ -6,16 +6,16 @@ export interface IMeasurement {
 }
 
 export interface ITemperature {
-  temperature: number,
-  timestamp: Date,
+  temperature: number
+  timestamp: Date
 }
 
 export interface IHumidity {
-  humidity: number,
-  timestamp: Date,
+  humidity: number
+  timestamp: Date
 }
 
 export interface ISoilMoisture {
-  soilMoisture: number,
-  timestamp: Date,
+  soilMoisture: number
+  timestamp: Date
 }

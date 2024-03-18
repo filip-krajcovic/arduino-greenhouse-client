@@ -8,6 +8,9 @@ import nodePolyfills from 'rollup-plugin-polyfill-node'
 
 import { VitePWA } from 'vite-plugin-pwa'
 
+import { resolve, dirname } from 'node:path'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -55,6 +58,10 @@ export default defineConfig({
           },
         ]
       }
+    }),
+    VueI18nPlugin({
+      include: resolve(dirname(fileURLToPath(import.meta.url)), './src/i18n/**'),
+      defaultSFCLang: 'yaml',
     }),
   ],
   resolve: {
