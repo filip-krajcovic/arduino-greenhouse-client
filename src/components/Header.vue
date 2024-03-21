@@ -17,7 +17,7 @@ const { on: state } = storeToRefs(store)
         <RouterLink to="/">
           <span class="text-xl pl-3">Arduino</span>
           <span
-            class="rounded-full w-3 h-3 ml-2 border bg-red-500 inline-block"
+            class="rounded-full w-3 h-3 ml-2 border inline-block"
             :class="{ 'bg-red-500 border-red-600': !state, 'bg-green-500 border-green-600': state }"
           ></span>
         </RouterLink>

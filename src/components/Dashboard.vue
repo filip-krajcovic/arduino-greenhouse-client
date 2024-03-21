@@ -14,8 +14,6 @@ import Window from './Window.vue'
     <SoilMoisture />
     <Pump />
   </div>
-  <div class="grid grid-cols-1 grid-rows-2 gap-6">
-    <Window />
+    <Window/>
     <Lights />
-  </div>
 </template>

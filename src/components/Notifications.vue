@@ -4,7 +4,7 @@ import Message from 'primevue/message'
 
 <template>
   <div class="card">
-    <Message severity="success">Success Message</Message>
+    <Message severity="success">Pripojene</Message>
     <Message severity="info">Info Message</Message>
     <Message severity="warn">Warning Message</Message>
     <Message severity="error">Error Message</Message>

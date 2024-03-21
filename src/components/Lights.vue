@@ -44,21 +44,15 @@ const lightsStateDesc = (state: boolean) => {
 </script>
 
 <template>
-  <div>
-    <h1 class="text-2xl text-black/70 dark:text-white font-bold">{{ $t('lights') }}</h1>
-    <div class="card flex items-center justify-between">
-      <div class="flex items-end">
-        <IconLights class="mr-2" />
-        <h3 v-if="state !== undefined" class="text-black/70 dark:text-neutral-200 font-extralight">
-          {{ `${$t('lights')} ${$t('are')}` }}
-          <span
-            class="font-bold pt-1"
-            :class="{ 'text-green-600': state, 'text-red-600': !state }"
-            >{{ lightsStateDesc(state) }}</span
-          >
-        </h3>
-      </div>
+  <div class="flex items-center justify-between">
+    <div class="flex items-center">
+      <IconLights class="mr-2" />
+      <h1 class="text-2xl text-black/70 dark:text-white font-bold">{{ $t('lights') }}</h1>
+    </div>
       <InputSwitch v-model="state" />
     </div>
-  </div>
+    <h3 v-if="state !== undefined" class="text-black/70 dark:text-neutral-200 font-extralight">{{ `${$t('lights')} ${$t('are')}` }}
+      <span class="font-bold pt-1" :class="{ 'text-green-600': state, 'text-red-600': !state }">{{ lightsStateDesc(state) }}</span>
+    </h3>
+
 </template>
