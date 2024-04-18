@@ -1,6 +1,6 @@
 {
   "config": {
-    "url": "https://iam.tiqra.space",
+    "url": "https://iam.tiqra.online",
     "realm": "Arduino",
     "clientId": "arduino-client"
   },
